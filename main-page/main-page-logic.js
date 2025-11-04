@@ -57,6 +57,8 @@ const startStopTimer = () => {
   stateSwitch();
   interval = setInterval(() => {
     if (timeLeft <= 0) {
+      isRunning = false;
+      stateSwitch();
       alert("Time's up!");
       clearInterval(interval);
       timeLeft = timeDuration;
