@@ -1,0 +1,12 @@
+{
+  "allowJs": false,
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "ESNext",
+    "lib": ["es2017", "es2020", "dom"]
+  },
+  "include": [
+    "main-page/main-page-logic.ts"
+  ]
+  
+} 
