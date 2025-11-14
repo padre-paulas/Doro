@@ -1,8 +1,0 @@
-{
-  "allowJs": false,
-  "compilerOptions": {
-    "target": "es2020",
-    "module": "ESNext",
-    "lib": ["es2020", "dom"]
-  }
-}
