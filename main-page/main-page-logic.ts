@@ -19,7 +19,7 @@ let timeLeft: number = timeDuration; // Time is in seconds
 let minutes: number = 25;
 let seconds: number = 0;
 let isRunning: boolean = false;
-let interval: number;
+let interval: NodeJS.Timeout;
 
 const updateTime = () => {
   minutes = Math.floor(timeLeft / 60);
