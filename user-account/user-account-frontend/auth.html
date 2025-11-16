@@ -10,12 +10,30 @@
   <title>DORO | Sign Up</title>
 </head>
 <body>
+
+  <div id="navbar">
+    <a href="../../user-account/user-account-frontend/user-account.html" class="navbar-button" id="account-button">
+      <img id="account-icon" src="../../media/account-icon-white.png" alt="User Account">
+    </a>
+    <a href="../../commitment/frontend/commitment.html" class="navbar-button" id="streak-button">
+      <img id="flame-icon" src="../../media/flame-icon-white.png" alt="Commitment Tracker">
+    </a>
+    <a href="../../focus-leaders/frontend/focus-leaders.html" class="navbar-button" id="leaderboard-button">
+      <img id="leaderboard-icon" src="../../media/leaderboard-icon-white.png" alt="Focus Leaders">
+    </a>
+    <h1 id="pomodoro-title">
+      DOR
+      <img class="tomato-logo-white" src="../../media/tomato-logo-white.png" alt="O">
+    </h1>
+    <button id="menu-button">&#9776;</button>
+  </div>
+  
   <div id="main-container">
 
-      <h1 id="pomodoro-title">DORO</h1>
 
-
-    <button id="sign-up-with-google-button">Sign up with Google</button>
+    <button class="main-button" id="sign-up-with-google-button">
+      <img id="google-logo" src="../../media/google-logo.png"/>Sign up with Google
+    </button>
     <p id="or">or</p>
     <input type="email" placeholder="Email..." id="email-input" required />
 
