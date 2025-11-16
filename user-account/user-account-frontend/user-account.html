@@ -1,12 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="user-account-styles.css">
-  <title>Project Pomodoro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Pomodoro profile and stats">
+    <link rel="stylesheet" href="user-account-styles.css">
+    <link rel="icon" href="../../media/tomato-white-1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+    <title>Profile - DORO</title>
 </head>
 <body>
-  
+    <!-- Navigation bar -->
+    <div id="navbar">
+        <a href="../../commitment/frontend/commitment.html" class="navbar-button" id="streak-button">
+            <img id="flame-icon" src="../../media/flame-icon-white.png" alt="Commitment Tracker">
+        </a>
+        <a href="../../focus-leaders/frontend/focus-leaders.html" class="navbar-button" id="leaderboard-button">
+            <img id="leaderboard-icon" src="../../media/leaderboard-icon-white.png" alt="Focus Leaders">
+        </a>
+        <h1 id="pomodoro-title">
+            DOR
+            <img class="tomato-logo-white" src="../../media/tomato-logo-white.png" alt="O">
+        </h1>
+        <button id="menu-button">&#9776;</button>
+    </div>
+
+    <!-- Main content -->
+    <div class="profile-container">
+        <!-- Left column: Profile section -->
+        <section class="profile-section">
+            <div class="profile-avatar">
+                <img src="../../media/account-icon-white.png" alt="Profile Picture" class="avatar-img">
+            </div>
+            <h2 class="username">Username_1</h2>
+            <div class="profile-actions">
+                <button class="edit-profile-btn main-button">Edit Profile</button>
+                <button class="sign-out-btn outline-button">Sign Out</button>
+            </div>
+            <p class="focus-message">You've focused for 1h 15m today — great job! 🎉</p>
+        </section>
+
+        <!-- Right column: Stats and Activity -->
+        <div class="stats-activity-container">
+            <!-- Stats section -->
+            <section class="stats-section">
+                <div class="stat-box">
+                    <span class="stat-icon">🕓</span>
+                    <span class="stat-value">42</span>
+                    <span class="stat-label">Total Sessions</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">⏳</span>
+                    <span class="stat-value">21</span>
+                    <span class="stat-label">Hours Focused</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">🔥</span>
+                    <span class="stat-value">7</span>
+                    <span class="stat-label">Current Streak</span>
+                </div>
+            </section>
+
+        <!-- Activity section -->
+        <section class="activity-section">
+            <h3 class="section-title">Monthly Activity</h3>
+            <div class="activity-grid-container">
+                <div class="activity-grid">
+                    <div class="activity-header">
+                        <span>S</span>
+                        <span>M</span>
+                        <span>T</span>
+                        <span>W</span>
+                        <span>T</span>
+                        <span>F</span>
+                        <span>S</span>
+                    </div>
+                    <div class="activity-cells">
+                        <!-- Week 1 -->
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell"></div>
+                        <!-- Week 2 -->
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <!-- Week 3 -->
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell"></div>
+                        <!-- Week 4 -->
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <!-- Week 5 (partial) -->
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell"></div>
+                    </div>
+                </div>
+                <div class="activity-legend">
+                    <div class="legend-item">
+                        <div class="legend-color high"></div>
+                        <span>High Focus (4+ sessions)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color medium"></div>
+                        <span>Medium Focus (2-3 sessions)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color"></div>
+                        <span>No Focus</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Link back to timer -->
+    <a href="../../main-page/main-page.html" class="back-to-timer main-button">
+        Back to Timer
+    </a>
 </body>
 </html>
