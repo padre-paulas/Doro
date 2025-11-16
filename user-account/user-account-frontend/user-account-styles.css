@@ -19,6 +19,15 @@
     --focus-medium: rgba(41, 195, 46, 0.4);
 }
 
+@keyframes flash {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
 body {
     background-color: var(--yellow-light);
     color: white;
@@ -49,7 +58,14 @@ body {
     transform: translateY(4px);
 }
 
-#streak-button, #leaderboard-button {
+#account-icon {
+    margin-left: 5px;
+    width: 45px;
+    transform: translateY(3px);
+    animation: flash 1.5s ease-in-out infinite;
+}
+
+#account-button, #streak-button, #leaderboard-button {
     font-size: 30px;
     margin: 0;
     margin-left: 20px;
@@ -64,6 +80,9 @@ body {
     margin: 0;
     font-size: 40px;
     font-family: "Krona One", sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
 }
 
 .tomato-logo-white {
@@ -91,20 +110,20 @@ body {
     margin: 3rem auto;
     padding: 0 3rem;
     align-items: flex-start;
-    height: calc(100vh - 100px);
 }
 
 /* Profile section */
 .profile-section {
     text-align: center;
     flex: 0 0 380px;
-    position: sticky;
-    top: 2rem;
-    background: white;
+    background: var(--brown);
     padding: 3rem;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--tomato-red);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .profile-avatar {
@@ -129,7 +148,7 @@ body {
 
 .username {
     font-size: 2rem;
-    color: var(--tomato-red);
+    color: var(--yellow-title);
     margin-bottom: 1.5rem;
 }
 
@@ -164,17 +183,13 @@ body {
 }
 
 .outline-button {
-    background: transparent;
-    color: var(--yellow-title);
-    border: 2px solid var(--brown);
-}
-
-.outline-button:hover {
-    background: rgba(76, 57, 52, 0.2);
+    background: var(--tomato-red);
+    color: white;
+    border: none;
 }
 
 .focus-message {
-    color: var(--brown);
+    color: var(--yellow-light-2);
     font-size: 1.1rem;
     margin-bottom: 2rem;
 }
@@ -191,7 +206,7 @@ body {
 /* Stats section */
 .stats-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     width: 100%;
 }
@@ -200,7 +215,6 @@ body {
     background: var(--tomato-red);
     padding: 2rem;
     border-radius: 20px;
-    min-width: 250px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -334,15 +348,6 @@ body {
     background: var(--focus-medium);
 }
 
-/* Back to timer button */
-.back-to-timer {
-    display: block;
-    width: fit-content;
-    margin: 2rem auto;
-    text-decoration: none;
-    padding: 10px 20px;
-}
-
 /* Responsive design */
 @media (max-width: 1024px) {
     .profile-container {
@@ -352,7 +357,6 @@ body {
     }
 
     .profile-section {
-        position: static;
         width: 100%;
         flex: none;
     }

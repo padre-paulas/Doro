@@ -84,6 +84,9 @@ html, body {
   margin: 0;
   font-size: 40px;
   font-family: "Krona One", sans-serif;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .tomato-logo-white {
