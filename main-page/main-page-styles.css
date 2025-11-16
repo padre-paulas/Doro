@@ -19,6 +19,8 @@ button {
   background-color: var(--tomato-red);
   font-size: 20px;
   border: none;
+  /*height: 50px;*/
+
 }
 
 a {
@@ -116,14 +118,29 @@ html, body {
 #start-stop-buttons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 30px;
+  transform: translate(10px);
+  margin-top: -20px;
 }
 
-#start-button, #stop-button, #reset-button {
+#start-button {
+  background-color: var(--button-green);
   padding: 10px;
   width: 160px;
   border-radius: 20px;
   cursor: pointer;
+}
+
+#reset-icon {
+  width: 60px;
+  transform: translateY(3px) translateX(-1px);
+}
+
+#reset-button {
+  background-color: transparent;
+  border-radius: 50%;
+  
 }
 
 .main-button {
@@ -131,18 +148,26 @@ html, body {
   transition: all 0.1s ease-in-out;
 }
 
+#reset-button:hover {
+  /*box-shadow: 0 0 10px 5px var(--tomato-red-dark);*/
+  transform: scale(1.2);
+  box-shadow: none;
+}
+
+#reset-button:active {
+  transform: rotate(150deg);
+  
+}
+
 .main-button:hover {
   box-shadow: 0 6px var(--tomato-red-dark);
   cursor: pointer;
+  
 }
 
 .main-button:active {
   transform: translateY(6px);
   box-shadow: 0 0 var(--tomato-red-dark);
-}
-
-#start-button {
-  background-color: var(--button-green);
 }
 
 #stop-button {

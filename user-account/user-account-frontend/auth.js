@@ -21,20 +21,22 @@ const signUp = async () => {
 const signUpGoogle = async () => {
 
   try {
-    await signInWithPopup(auth, googleProvider);
+    const result = await signInWithPopup(auth, googleProvider);
+    console.log(`You are logged in with Google, here's your name: ${result?.user?.displayName}`)
   } catch (error) {
     console.log(error);
   }
+ 
 }
 
-const logOut = async () => {
-  try {
-    await signOut(auth);
-  } catch (error) {
-    console.log(error)
-  }
-}
+// const logOut = async () => {
+//   try {
+//     await signOut(auth);
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
 
 signUpButton.onclick = signUp;
 signUpGoogleButton.onclick = signUpGoogle;
-logOutButton.onclick = logOut;
+// logOutButton.onclick = logOut;
