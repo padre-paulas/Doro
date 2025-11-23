@@ -22,55 +22,101 @@ body {
     background: var(--brown);
     color: var(--yellow-title);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     background-image: linear-gradient(
         45deg,
         rgba(76, 57, 52, 1) 0%,
         rgba(112, 32, 21, 0.8) 100%
     );
     user-select: none;
+    margin: 0;
+}
+
+/* Navbar styles */
+#navbar {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: var(--tomato-red);
+    border-radius: 20px;
+    gap: 15px;
+    margin: 10px;
+    height: 50px;
+}
+
+#account-icon, #flame-icon {
+    margin: 0;
+    padding: 0;
+}
+
+#account-icon {
+    margin-left: 5px;
+    width: 45px;
+    transform: translateY(3px);
+}
+
+#flame-icon {
+    width: 40px;
+    transform: translateY(4px);
+}
+
+#account-button, #streak-button {
+    font-size: 30px;
+    margin: 0;
+    margin-left: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#pomodoro-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-43%) translateY(-10%);
+    margin: 0;
+    font-size: 40px;
+    font-family: "Krona One", sans-serif;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tomato-logo-white {
+    width: 55px;
+    transform: translateY(8px) translateX(-20px);
+    color: rgb(224, 210, 185);
+}
+
+#menu-button {
+    margin-left: auto;
+    font-size: 50px;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-right: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+    border: none;
 }
 
 .container {
     width: 100%;
     max-width: 800px;
-    margin: 2rem;
+    margin: 2rem auto;
+    padding: 0 3rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    flex: 1;
 }
 
 /* Header styles */
 header {
-    padding: 1rem;
+    display: none;
 }
 
 .back-button {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--tomato-red);
-    color: var(--yellow-title);
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 1.1rem;
-    transition: all 0.1s ease-in-out;
-}
-
-.back-button:hover {
-    box-shadow: 0 6px var(--tomato-red-dark);
-    cursor: pointer;
-}
-
-.back-button:active {
-    transform: translateY(6px);
-    box-shadow: 0 0 var(--tomato-red-dark);
-}
-
-.back-arrow {
-    margin-right: 0.5rem;
-    font-size: 1.4rem;
+    display: none;
 }
 
 /* Leaderboard styles */
