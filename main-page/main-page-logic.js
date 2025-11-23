@@ -97,3 +97,23 @@ document.addEventListener('click', function(event) {
         menuDropdown.classList.remove('active');
     }
 });
+
+// Streak modal functionality
+var streakModal = document.getElementById('streak-modal');
+var modalClose = document.querySelector('.modal-close');
+
+streakButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    streakModal.classList.add('active');
+});
+
+modalClose.addEventListener('click', function() {
+    streakModal.classList.remove('active');
+});
+
+// Close modal when clicking outside the content
+streakModal.addEventListener('click', function(event) {
+    if (event.target === streakModal) {
+        streakModal.classList.remove('active');
+    }
+});

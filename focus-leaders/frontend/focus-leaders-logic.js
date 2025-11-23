@@ -12,3 +12,26 @@ document.addEventListener('click', function(event) {
         menuDropdown.classList.remove('active');
     }
 });
+
+// Streak modal functionality
+const streakButton = document.getElementById('streak-button');
+const streakModal = document.getElementById('streak-modal');
+const modalClose = document.querySelector('.modal-close');
+
+if (streakButton && streakModal && modalClose) {
+    streakButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        streakModal.classList.add('active');
+    });
+
+    modalClose.addEventListener('click', function() {
+        streakModal.classList.remove('active');
+    });
+
+    // Close modal when clicking outside the content
+    streakModal.addEventListener('click', function(event) {
+        if (event.target === streakModal) {
+            streakModal.classList.remove('active');
+        }
+    });
+}
