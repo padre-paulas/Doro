@@ -96,6 +96,44 @@ body {
     border: none;
 }
 
+/* Menu dropdown styles */
+.menu-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: var(--tomato-red);
+    border-radius: 15px;
+    min-width: 150px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.menu-dropdown.active {
+    display: flex;
+}
+
+.menu-item {
+    padding: 1rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background-color: var(--tomato-red-dark);
+    padding-left: 2rem;
+}
+
 /* Main content styles */
 .profile-container {
     display: flex;

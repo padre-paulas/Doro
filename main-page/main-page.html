@@ -29,7 +29,7 @@
     </a>
     <button id="menu-button">&#9776;</button>
     <div id="menu-dropdown" class="menu-dropdown">
-      <a href="../about-us/aboutus.html" class="menu-item">About Us</a>
+      <a href="../about-us/about-us.html" class="menu-item">About Us</a>
     </div>
   </div>
 
@@ -53,23 +53,67 @@
     </div>
   </div>
   
+  <!-- Streak Modal -->
+  <div id="streak-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h2>Your Streak</h2>
+      <div class="streak-info">
+        <div class="streak-stat">
+          <span class="streak-label">Current Streak</span>
+          <span class="streak-value">7</span>
+          <span class="streak-unit">days</span>
+        </div>
+      </div>
+      <h3>This Month's Activity</h3>
+      <div class="mini-activity-grid">
+        <div class="activity-header">
+          <span>S</span>
+          <span>M</span>
+          <span>T</span>
+          <span>W</span>
+          <span>T</span>
+          <span>F</span>
+          <span>S</span>
+        </div>
+        <div class="activity-cells">
+          <!-- Week 1 -->
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <!-- Week 2 -->
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <!-- Week 3 -->
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell"></div>
+          <!-- Week 4 -->
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <script src="main-page-logic.js"></script>
-  <script>
-    // Menu toggle functionality
-    const menuButton = document.getElementById('menu-button');
-    const menuDropdown = document.getElementById('menu-dropdown');
-
-    menuButton.addEventListener('click', function() {
-      menuDropdown.classList.toggle('active');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!event.target.closest('#navbar')) {
-        menuDropdown.classList.remove('active');
-      }
-    });
-  </script>
 </body>
 </html>
