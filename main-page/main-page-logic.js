@@ -1,3 +1,4 @@
+// import { onAuthStateChanged } from 'firebase/auth';
 var accountButton = document.getElementById("account-button");
 var streakButton = document.getElementById("streak-button");
 var leaderboardButton = document.getElementById("leaderboard-button");
@@ -84,3 +85,4 @@ resetButton.addEventListener("click", resetTimer);
 workButton.addEventListener("click", function () { return timeSwitch(work_25_minutes); });
 shortBreakButton.addEventListener("click", function () { return timeSwitch(break_5_minutes); });
 longBreakButton.addEventListener("click", function () { return timeSwitch(break_15_minutes); });
+// accountButton.addEventListener("click", () => changeLink)
