@@ -77,6 +77,11 @@ html, body {
   cursor: pointer;
 }
 
+/* Active page indicator for main page */
+#account-button, #streak-button, #leaderboard-button {
+  opacity: 1;
+}
+
 #pomodoro-title {
   position: absolute;
   left: 50%;
