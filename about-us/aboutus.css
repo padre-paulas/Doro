@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+
+:root {
+    --red: rgba(190, 48, 16, 0.771);
+    --brown: rgb(76, 57, 52);
+    --yellow-light-2: rgb(224, 210, 185);
+    --yellow-light: rgba(224, 210, 185, 0.266);
+    --yellow-title: rgb(255, 242, 220);
+    --tomato-red: rgb(219, 61, 39);
+    --tomato-red-dark: rgb(112, 32, 21);
+    --button-green: rgba(41, 195, 46, 1);
+}
+
+body {
+    background-color: var(--yellow-light);
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    user-select: none;
+}
+
+/* Navbar styles */
+#navbar {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: var(--tomato-red);
+    border-radius: 20px;
+    gap: 15px;
+    margin: 10px;
+    height: 50px;
+}
+
+#account-icon, #flame-icon, #leaderboard-icon {
+    margin: 0;
+    padding: 0;
+}
+
+#account-icon {
+    margin-left: 5px;
+    width: 45px;
+    transform: translateY(3px);
+}
+
+#flame-icon {
+    width: 40px;
+    transform: translateY(4px);
+}
+
+#leaderboard-icon {
+    width: 39px;
+    transform: translateY(4px);
+}
+
+#account-button, #streak-button, #leaderboard-button {
+    font-size: 30px;
+    margin: 0;
+    margin-left: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#pomodoro-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-43%) translateY(-10%);
+    margin: 0;
+    font-size: 40px;
+    font-family: "Krona One", sans-serif;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tomato-logo-white {
+    width: 55px;
+    transform: translateY(8px) translateX(-20px);
+    color: rgb(224, 210, 185);
+}
+
+#menu-button {
+    margin-left: auto;
+    font-size: 50px;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-right: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+    border: none;
+}
+
+/* Main content */
+.container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 3rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: var(--brown);
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.about-section {
+    background: rgba(76, 57, 52, 0.8);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--tomato-red);
+}
+
+.about-section h2 {
+    color: var(--yellow-title);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.about-section p {
+    color: var(--yellow-light-2);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.features-list, .benefits-list {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.features-list li, .benefits-list li {
+    color: var(--yellow-light-2);
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-left: 3px solid var(--tomato-red);
+    margin-left: 0.5rem;
+}
+
+.feature-icon {
+    margin-right: 0.75rem;
+    font-size: 1.3rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--button-green);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    transition: all 0.1s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    box-shadow: 0 6px var(--tomato-red-dark);
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.cta-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px var(--tomato-red-dark);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 2rem 1rem;
+        padding: 0 1rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-section {
+        padding: 1.5rem;
+    }
+
+    .about-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+    }
+
+    .features-list li, .benefits-list li {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .about-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .about-section {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}

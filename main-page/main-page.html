@@ -28,6 +28,9 @@
       <img class="tomato-logo-white" src="../media/tomato-logo-white.png" alt="O">
     </a>
     <button id="menu-button">&#9776;</button>
+    <div id="menu-dropdown" class="menu-dropdown">
+      <a href="../about-us/aboutus.html" class="menu-item">About Us</a>
+    </div>
   </div>
 
   <div id="buttons-timer-container">
@@ -52,5 +55,21 @@
   
   
   <script src="main-page-logic.js"></script>
+  <script>
+    // Menu toggle functionality
+    const menuButton = document.getElementById('menu-button');
+    const menuDropdown = document.getElementById('menu-dropdown');
+
+    menuButton.addEventListener('click', function() {
+      menuDropdown.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('#navbar')) {
+        menuDropdown.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
