@@ -49,12 +49,32 @@ body {
     transform: translateY(4px);
 }
 
-#streak-button, #leaderboard-button {
+#account-icon {
+    margin-left: 5px;
+    width: 45px;
+    transform: translateY(3px);
+    opacity: 0.5;
+    border-radius: 15px;
+    padding: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#account-button, #streak-button, #leaderboard-button {
     font-size: 30px;
     margin: 0;
     margin-left: 20px;
     background-color: transparent;
     cursor: pointer;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+#streak-button {
+    padding: 5px;
+    border-radius: 0;
 }
 
 #pomodoro-title {
@@ -64,6 +84,9 @@ body {
     margin: 0;
     font-size: 40px;
     font-family: "Krona One", sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
 }
 
 .tomato-logo-white {
@@ -83,6 +106,44 @@ body {
     border: none;
 }
 
+/* Menu dropdown styles */
+.menu-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: var(--tomato-red);
+    border-radius: 15px;
+    min-width: 150px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.menu-dropdown.active {
+    display: flex;
+}
+
+.menu-item {
+    padding: 1rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background-color: var(--tomato-red-dark);
+    padding-left: 2rem;
+}
+
 /* Main content styles */
 .profile-container {
     display: flex;
@@ -91,20 +152,20 @@ body {
     margin: 3rem auto;
     padding: 0 3rem;
     align-items: flex-start;
-    height: calc(100vh - 100px);
 }
 
 /* Profile section */
 .profile-section {
     text-align: center;
     flex: 0 0 380px;
-    position: sticky;
-    top: 2rem;
-    background: white;
+    background: var(--brown);
     padding: 3rem;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--tomato-red);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .profile-avatar {
@@ -129,7 +190,7 @@ body {
 
 .username {
     font-size: 2rem;
-    color: var(--tomato-red);
+    color: var(--yellow-title);
     margin-bottom: 1.5rem;
 }
 
@@ -164,17 +225,13 @@ body {
 }
 
 .outline-button {
-    background: transparent;
-    color: var(--yellow-title);
-    border: 2px solid var(--brown);
-}
-
-.outline-button:hover {
-    background: rgba(76, 57, 52, 0.2);
+    background: var(--tomato-red);
+    color: white;
+    border: none;
 }
 
 .focus-message {
-    color: var(--brown);
+    color: var(--yellow-light-2);
     font-size: 1.1rem;
     margin-bottom: 2rem;
 }
@@ -191,7 +248,7 @@ body {
 /* Stats section */
 .stats-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     width: 100%;
 }
@@ -200,7 +257,6 @@ body {
     background: var(--tomato-red);
     padding: 2rem;
     border-radius: 20px;
-    min-width: 250px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -334,15 +390,6 @@ body {
     background: var(--focus-medium);
 }
 
-/* Back to timer button */
-.back-to-timer {
-    display: block;
-    width: fit-content;
-    margin: 2rem auto;
-    text-decoration: none;
-    padding: 10px 20px;
-}
-
 /* Responsive design */
 @media (max-width: 1024px) {
     .profile-container {
@@ -352,7 +399,6 @@ body {
     }
 
     .profile-section {
-        position: static;
         width: 100%;
         flex: none;
     }
@@ -398,4 +444,149 @@ body {
     .focus-message {
         font-size: 1rem;
     }
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--brown);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 2px solid var(--tomato-red);
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    color: var(--yellow-title);
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: none;
+    border: none;
+    color: var(--yellow-title);
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.modal-close:hover {
+    transform: scale(1.3);
+}
+
+.modal-content h2 {
+    color: var(--yellow-title);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.modal-content h3 {
+    color: var(--yellow-light-2);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.streak-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.streak-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--tomato-red);
+    border-radius: 15px;
+    border: 2px solid var(--yellow-light-2);
+}
+
+.streak-label {
+    color: var(--yellow-light-2);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.streak-value {
+    color: var(--yellow-title);
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.streak-unit {
+    color: var(--yellow-light-2);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.mini-activity-grid {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid var(--tomato-red);
+}
+
+.activity-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: var(--yellow-light-2);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.activity-cells {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+}
+
+.activity-cell {
+    aspect-ratio: 1;
+    border-radius: 3px;
+    border: 1px solid var(--tomato-red-dark);
+    background: transparent;
+    min-width: 20px;
+    min-height: 20px;
+    transition: all 0.2s ease;
+}
+
+.activity-cell:hover {
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+.activity-cell.high {
+    background: var(--button-green);
+    border-color: var(--button-green);
+    box-shadow: 0 0 8px var(--button-green);
+}
+
+.activity-cell.medium {
+    background: rgba(41, 195, 46, 0.6);
+    border-color: var(--button-green);
 }
