@@ -1,5 +1,5 @@
-import { auth, googleProvider } from "../../config/firebase-config.js";
-import {  createUserWithEmailAndPassword, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+import { auth } from '../../config/firebase-config.js';
+import { signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 
 const signUpButton = document.getElementById("sign-up-button");
 const email = document.getElementById("email-input");

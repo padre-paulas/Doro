@@ -1,4 +1,4 @@
-const accountButton = document.getElementById("account-button") as HTMLButtonElement;
+const accountButton = document.getElementById("account-button") as HTMLAnchorElement;
 const streakButton = document.getElementById("streak-button") as HTMLButtonElement;
 const leaderboardButton = document.getElementById("leaderboard-button") as HTMLButtonElement;
 const pomodoroTitle = document.getElementById("pomodoro-title") as HTMLHeadingElement;
@@ -92,3 +92,4 @@ resetButton.addEventListener("click", resetTimer);
 workButton.addEventListener("click", () => timeSwitch(work_25_minutes));
 shortBreakButton.addEventListener("click", () => timeSwitch(break_5_minutes));
 longBreakButton.addEventListener("click", () => timeSwitch(break_15_minutes));
+// accountButton.addEventListener("click", () => changeLink)

@@ -14,7 +14,7 @@
 <body>
 
   <div id="navbar">
-    <a href="../user-account/user-account-frontend/user-account.html" class="navbar-button" id="account-button">
+    <a href="#" class="navbar-button" id="account-button">
       <img id="account-icon" src="../media/account-icon-white.png" alt="User Account">
     </a>
     <button class="navbar-button" id="streak-button">
@@ -115,5 +115,33 @@
   </div>
   
   <script src="main-page-logic.js"></script>
+  <script type="module">
+    import { auth } from '../config/firebase-config.js';
+    import { onAuthStateChanged } from 'firebase/auth';
+
+    // const changeLink = () => {
+    //   console.log("it's working!!");
+    
+    //   if (auth.currentUser) {
+    //     accountButton.href = '../user-account/user-account-frontend/user-account.html';
+    //   } else {
+    //     accountButton.href = '../user-account/user-account-frontend/auth.html';
+    //   }
+    // } 
+
+    // changeLink();
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("user is signed in: ", user.email);
+        accountButton.href = '../user-account/user-account-frontend/user-account.html';
+        
+      } else {
+        console.log("no user signed in");
+        accountButton.href = '../user-account/user-account-frontend/auth.html';
+        
+      }
+    })
+  </script>
 </body>
 </html>
