@@ -14,9 +14,12 @@
 <body>
     <!-- Navigation bar -->
     <div id="navbar">
-        <a href="../../commitment/frontend/commitment.html" class="navbar-button" id="streak-button">
-            <img id="flame-icon" src="../../media/flame-icon-white.png" alt="Commitment Tracker">
+        <a href="../../user-account/user-account-frontend/user-account.html" class="navbar-button" id="account-button">
+            <img id="account-icon" src="../../media/account-icon-white.png" alt="User Account">
         </a>
+        <button class="navbar-button" id="streak-button">
+            <img id="flame-icon" src="../../media/flame-icon-white.png" alt="Commitment Tracker">
+        </button>
         <a href="../../focus-leaders/frontend/focus-leaders.html" class="navbar-button" id="leaderboard-button">
             <img id="leaderboard-icon" src="../../media/leaderboard-icon-white.png" alt="Focus Leaders">
         </a>
@@ -28,6 +31,9 @@
         </a>
        
         <button id="menu-button">&#9776;</button>
+        <div id="menu-dropdown" class="menu-dropdown">
+            <a href="../../about-us/about-us.html" class="menu-item">About Us</a>
+        </div>
     </div>
 
     <!-- Main content -->
@@ -137,10 +143,66 @@
         </section>
     </div>
 
-    <!-- Link back to timer -->
-    <a href="../../main-page/main-page.html" class="back-to-timer main-button">
-        Back to Timer
-    </a>
+    <!-- Streak Modal -->
+    <div id="streak-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h2>Your Streak</h2>
+        <div class="streak-info">
+          <div class="streak-stat">
+            <span class="streak-label">Current Streak</span>
+            <span class="streak-value">7</span>
+            <span class="streak-unit">days</span>
+          </div>
+        </div>
+        <h3>This Month's Activity</h3>
+        <div class="mini-activity-grid">
+          <div class="activity-header">
+            <span>S</span>
+            <span>M</span>
+            <span>T</span>
+            <span>W</span>
+            <span>T</span>
+            <span>F</span>
+            <span>S</span>
+          </div>
+          <div class="activity-cells">
+            <!-- Week 1 -->
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <!-- Week 2 -->
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <!-- Week 3 -->
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell"></div>
+            <!-- Week 4 -->
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="user-account-logic.js"></script>
 </body>

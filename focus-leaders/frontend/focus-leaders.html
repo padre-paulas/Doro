@@ -6,16 +6,34 @@
     <meta name="description" content="Focus Leaders - See who's leading in productivity!">
     <link rel="stylesheet" href="focus-leaders-styles.css">
     <link rel="icon" href="../../media/tomato-white-1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
     <title>Focus Leaders - Project Pomodoro</title>
 </head>
 <body>
+    <!-- Navigation bar -->
+    <div id="navbar">
+        <a href="../../user-account/user-account-frontend/user-account.html" class="navbar-button" id="account-button">
+            <img id="account-icon" src="../../media/account-icon-white.png" alt="User Account">
+        </a>
+        <a href="../../commitment/frontend/commitment.html" class="navbar-button" id="streak-button">
+            <img id="flame-icon" src="../../media/flame-icon-white.png" alt="Commitment Tracker">
+        </a>
+        <a href="../../focus-leaders/frontend/focus-leaders.html" class="navbar-button" id="leaderboard-button">
+            <img id="leaderboard-icon" src="../../media/leaderboard-icon-white.png" alt="Focus Leaders">
+        </a>
+        <a href="../../main-page/main-page.html" id="pomodoro-title">
+            DOR
+            <img class="tomato-logo-white" src="../../media/tomato-logo-white.png" alt="O">
+        </a>
+        <button id="menu-button">&#9776;</button>
+        <div id="menu-dropdown" class="menu-dropdown">
+            <a href="../../about-us/about-us.html" class="menu-item">About Us</a>
+        </div>
+    </div>
+
     <div class="container">
-        <!-- Header with back button -->
-        <header>
-            <a href="../../main-page/main-page.html" class="back-button">
-                <span class="back-arrow">←</span> Back to Timer
-            </a>
-        </header>
 
         <!-- Main leaderboard section -->
         <main class="leaderboard-container">
@@ -77,5 +95,68 @@
             <img src="../../media/tomato-light-2.png" alt="Pomodoro Logo" class="footer-logo">
         </footer>
     </div>
+
+    <!-- Streak Modal -->
+    <div id="streak-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h2>Your Streak</h2>
+        <div class="streak-info">
+          <div class="streak-stat">
+            <span class="streak-label">Current Streak</span>
+            <span class="streak-value">7</span>
+            <span class="streak-unit">days</span>
+          </div>
+        </div>
+        <h3>This Month's Activity</h3>
+        <div class="mini-activity-grid">
+          <div class="activity-header">
+            <span>S</span>
+            <span>M</span>
+            <span>T</span>
+            <span>W</span>
+            <span>T</span>
+            <span>F</span>
+            <span>S</span>
+          </div>
+          <div class="activity-cells">
+            <!-- Week 1 -->
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <!-- Week 2 -->
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <!-- Week 3 -->
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell"></div>
+            <!-- Week 4 -->
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="focus-leaders-logic.js"></script>
 </body>
 </html>
