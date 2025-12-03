@@ -2,6 +2,8 @@ import { auth, googleProvider, app } from "../../config/firebase-config.js";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 // import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+
 
 
 const db = getFirestore(app);
@@ -39,52 +41,51 @@ changeLink();
 //     if (!userSnap.exists()) {
 //       await setDoc(userRef, {
 //         email: user.email,
-//         timerFinished: 0
+//         timesFinished: 0
 //       })
 //     }
 //   }
 // })
 
-// const createUserDoc = async () => {
-//   await setDoc(userRef, {
-//     email: user.email,
-//     timersFinished: 0
-//   })
-// }
 
-const createUserDoc = async () => {
-  console.log("Start")
-  if (auth.currentUser) {
-    const userRef = doc(db, "userStats", auth.currentUser.uid);
-    const userSnap = await getDoc(userRef);
 
-  if (!userSnap.exists()) {
-    await setDoc(userRef, {
-      email: auth.currentUser.email,
-      timersFinished: 0
-    })
-    }
-  }
-}
 
 const signUp = async () => {
   console.log(`You are logged in with this email: ${auth?.currentUser?.email}`)
 
   try {
-    console.log("We are here")
-    await signInWithEmailAndPassword(auth, email.value, password.value);
-    createUserDoc();
+    const userCredential = await signInWithEmailAndPassword(auth, email.value, password.value);
+    const user = userCredential.user;
+
+    const userRef = doc(db, "userStats", user.uid);
+    const userSnap = await getDoc(userRef);
+    if (!userSnap.exists()) {
+      await setDoc(userRef, {
+        email: user.email,
+        timersFinished: 0
+      })
+    }
+    // createUserDoc();
     changeLink();
-    openAccountPage();
+    return openAccountPage();
   } catch (error) {
     console.log(error)
   }
 
   try {
-    await createUserWithEmailAndPassword(auth, email.value, password.value);
-    createUserDoc();
+
+    const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
+    const user = userCredential.user;
+
+    const userRef = doc(db, "userStats", user.uid);
+    await setDoc(userRef, {
+      email: user.email,
+      timersFinished: 0
+    })
+    
+    // createUserDoc();
     changeLink();
-    openAccountPage();
+    return openAccountPage();
 
     
   } catch (error) {
