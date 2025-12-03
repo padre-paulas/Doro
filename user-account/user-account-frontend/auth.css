@@ -166,6 +166,7 @@ input {
   border-radius: 10px;
   padding-left: 15px;
   background-color: white;
+  color: black;
 }
 
 #sign-up-button {
