@@ -59,12 +59,12 @@ body {
 
 #account-icon {
     margin-left: 5px;
-    width: 45px;
+    width: 50px;
     transform: translateY(3px);
-    opacity: 0.5;
+    /* opacity: 0.5; */
     border-radius: 15px;
     padding: 5px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); */
 }
 
 #account-button, #streak-button, #leaderboard-button {
@@ -86,10 +86,6 @@ body {
 }
 
 #pomodoro-title {
-    /* position: absolute;
-    left: 50%;
-    transform: translateX(-43%) translateY(-10%);
-    margin: 0; */
     font-size: 40px;
     font-family: "Krona One", sans-serif;
     text-decoration: none;
@@ -198,7 +194,7 @@ body {
 
 .username {
     font-size: 2rem;
-    color: var(--yellow-title);
+    color: white;
     margin-bottom: 1.5rem;
 }
 
@@ -228,7 +224,7 @@ body {
 }
 
 .main-button:active {
-    transform: translateY(6px);
+    transform: translateY(3px);
     box-shadow: 0 0 var(--tomato-red-dark);
 }
 
@@ -239,7 +235,7 @@ body {
 }
 
 .focus-message {
-    color: var(--yellow-light-2);
+    color: white;
     font-size: 1.1rem;
     margin-bottom: 2rem;
 }
@@ -280,34 +276,34 @@ body {
 
 .stat-value {
     font-size: 3rem;
-    color: var(--yellow-title);
+    color: white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .stat-label {
     font-size: 1.1rem;
-    color: var(--yellow-light-2);
+    color: white;
     font-weight: bold;
 }
 
 /* Activity section */
 .activity-section {
-    background: var(--brown);
-    padding: 2.5rem;
+    /* background: var(--brown); */
+    /* padding: 2.5rem; */
     border-radius: 20px;
     margin-bottom: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-    border: 2px solid var(--tomato-red);
+    /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); */
+    /* border: 2px solid var(--tomato-red); */
 }
 
 .section-title {
-    color: var(--yellow-title);
+    color: black;
     margin-bottom: 2rem;
     text-align: center;
     font-size: 1.8rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
 }
 
 .activity-grid-container {
@@ -330,7 +326,7 @@ body {
     gap: 0.25rem;
     margin-bottom: 0.5rem;
     text-align: center;
-    color: var(--yellow-light-2);
+    color: black;
     font-size: 0.8rem;
     font-weight: bold;
 }
@@ -369,14 +365,14 @@ body {
     background: rgba(41, 195, 46, 0.6);
     border-color: var(--button-green);
 }
-
+/* 
 .activity-legend {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     color: var(--yellow-light-2);
-}
-
+} */
+/* 
 .legend-item {
     display: flex;
     align-items: center;
@@ -396,7 +392,7 @@ body {
 
 .legend-color.medium {
     background: var(--focus-medium);
-}
+} */
 
 /* Responsive design */
 @media (max-width: 1024px) {

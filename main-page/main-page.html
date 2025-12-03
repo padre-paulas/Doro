@@ -118,6 +118,46 @@
   <script type="module">
     import { auth } from '../config/firebase-config.js';
     import { onAuthStateChanged } from 'firebase/auth';
+    import { getFirestore, doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+
+    const db = getFirestore();
+
+    const incrementTimersFinished = async () => {
+      const user = auth.currentUser;
+      if (!user) return;
+
+      const userRef = doc(db, "userStats", user.uid);
+      try {
+        await updateDoc(userRef, {
+          secondsFocused: increment(1500),
+          timersFinished: increment(1)
+          
+        });
+        console.log("timersFinished incremented!");
+      } catch (error) {
+        console.error("Failed to increment timersFinished:", error);
+      }
+    };
+
+    let incremented = false; // to make sure it only runs once per timer
+    const checkTimer = () => {
+      if (typeof timeLeft !== "undefined" && !incremented && timeLeft <= 0) {
+        incremented = true;
+        incrementTimersFinished();
+      }
+    };
+
+    // Call this function every second
+    setInterval(checkTimer, 1000);
+
+    // Reset incremented flag when the timer is restarted
+    const startButton = document.getElementById("start-button");
+    if (startButton) {
+      startButton.addEventListener("click", () => {
+        incremented = false;
+      });
+    }
+
 
     // const changeLink = () => {
     //   console.log("it's working!!");
@@ -130,6 +170,7 @@
     // } 
 
     // changeLink();
+  
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -142,6 +183,43 @@
         
       }
     })
+
+
+
+    const menuButton = document.getElementById("menu-button");
+    const menuDropdown = document.getElementById("menu-dropdown")
+
+    menuButton.addEventListener('click', function() {
+        menuDropdown.classList.toggle('active');
+    });
+
+
+
+    if (streakButton && streakModal && modalClose) {
+        streakButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            streakModal.classList.add('active');
+        });
+
+        modalClose.addEventListener('click', function() {
+            streakModal.classList.remove('active');
+        });
+
+        // Close modal when clicking outside the content
+        streakModal.addEventListener('click', function(event) {
+            if (event.target === streakModal) {
+                streakModal.classList.remove('active');
+            }
+        });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('#navbar')) {
+            menuDropdown.classList.remove('active');
+        }
+    });
+
   </script>
 </body>
 </html>
