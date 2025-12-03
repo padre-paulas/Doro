@@ -28,6 +28,7 @@ const ensureUserDoc = async (user) => {
   if (!userSnap.exists()) {
     await setDoc(userRef, {
       email: user.email,
+      hoursFocused: 0,
       timersFinished: 0
     });
   }
