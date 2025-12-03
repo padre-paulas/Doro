@@ -28,7 +28,7 @@ const ensureUserDoc = async (user) => {
   if (!userSnap.exists()) {
     await setDoc(userRef, {
       email: user.email,
-      hoursFocused: 0,
+      secondsFocused: 0,
       timersFinished: 0
     });
   }
@@ -44,9 +44,11 @@ const signUp = async () => {
     changeLink(user);
     return openAccountPage();
   } catch (error) {
-    if (error.code === "auth/user-not-found") {
+    console.log("This is EROROROORORO:", error)
+    // if (error.code === "auth/user-not-found") {
       // If user doesn't exist, create account
       try {
+        console.log("Did we get here?")
         const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
         const user = userCredential.user;
         await ensureUserDoc(user);
@@ -55,9 +57,9 @@ const signUp = async () => {
       } catch (createError) {
         console.error("Error creating user:", createError);
       }
-    } else {
-      console.error("Login error:", error);
-    }
+    // } else {
+    //   console.error("Login error:", error);
+    // }
   }
 };
 
