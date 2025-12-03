@@ -1,4 +1,3 @@
-// import { onAuthStateChanged } from 'firebase/auth';
 var accountButton = document.getElementById("account-button");
 var streakButton = document.getElementById("streak-button");
 var leaderboardButton = document.getElementById("leaderboard-button");
@@ -10,7 +9,7 @@ var longBreakButton = document.getElementById("long-break-button");
 var timerTime = document.getElementById("timer-time");
 var startStopButton = document.getElementById("start-button");
 var resetButton = document.getElementById("reset-button");
-var work_25_minutes = 1500;
+var work_25_minutes = 10;
 var break_5_minutes = 300;
 var break_15_minutes = 900;
 var timeDuration = 1500;
@@ -86,36 +85,3 @@ workButton.addEventListener("click", function () { return timeSwitch(work_25_min
 shortBreakButton.addEventListener("click", function () { return timeSwitch(break_5_minutes); });
 longBreakButton.addEventListener("click", function () { return timeSwitch(break_15_minutes); });
 // accountButton.addEventListener("click", () => changeLink)
-
-// Menu toggle functionality
-var menuDropdown = document.getElementById('menu-dropdown');
-menuButton.addEventListener('click', function() {
-    menuDropdown.classList.toggle('active');
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', function(event) {
-    if (!event.target.closest('#navbar')) {
-        menuDropdown.classList.remove('active');
-    }
-});
-
-// Streak modal functionality
-var streakModal = document.getElementById('streak-modal');
-var modalClose = document.querySelector('.modal-close');
-
-streakButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    streakModal.classList.add('active');
-});
-
-modalClose.addEventListener('click', function() {
-    streakModal.classList.remove('active');
-});
-
-// Close modal when clicking outside the content
-streakModal.addEventListener('click', function(event) {
-    if (event.target === streakModal) {
-        streakModal.classList.remove('active');
-    }
-});
