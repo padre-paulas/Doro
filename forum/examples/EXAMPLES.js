@@ -172,7 +172,7 @@ async function replyToPost(postId, commentText) {
       await import("https://www.gstatic.com/firebasejs/10.12.3/firestore.js");
     
     const db = getFirestore();
-    const userDoc = await getDoc(doc(db, "users", user.uid));
+    const userDoc = await getDoc(doc(db, "userStats", user.uid));
     const userData = userDoc.data();
 
     // Add comment
@@ -418,7 +418,7 @@ async function handleCreatePostForm(e) {
     const { getFirestore, doc, getDoc } = 
       await import("https://www.gstatic.com/firebasejs/10.12.3/firestore.js");
     const db = getFirestore();
-    const userDoc = await getDoc(doc(db, "users", user.uid));
+    const userDoc = await getDoc(doc(db, "userStats", user.uid));
     const userData = userDoc.data();
     
     // Create post

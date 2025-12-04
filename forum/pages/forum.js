@@ -494,7 +494,7 @@ async function getUserData(uid) {
     );
 
     const db = getFirestore();
-    const userDoc = await getDoc(doc(db, "users", uid));
+    const userDoc = await getDoc(doc(db, "userStats", uid));
 
     if (userDoc.exists()) {
       return userDoc.data();
