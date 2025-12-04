@@ -60,7 +60,7 @@ Installation
 
 Clone the repository
 
-git clone [https://github.com/yourusername/doro.git](https://github.com/yourusername/doro.git)
+git clone [https://github.com/padre-paulas/Doro](https://github.com/padre-paulas/Doro)
 cd doro
 
 
@@ -160,6 +160,7 @@ Distributed under the MIT License. See LICENSE for more information.
 
 📧 Contact
 
-Your Name - @yourtwitter - email@example.com
+padre-paulas - @padre-paulas - pavlo.nord@gmail.com
+Nerekin - @nerekin - cheemscheemsovich@gmail.com
 
-Project Link: https://github.com/yourusername/doro
+Project Link: https://github.com/padre-paulas/Doro
