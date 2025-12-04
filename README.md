@@ -63,11 +63,11 @@ Sign up for an account and start focusing!
 
 🔮 Future Improvements
 
-# Dark/Light mode toggle.
+- Dark/Light mode toggle.
 
-# User profile customization (avatars).
+- User profile customization (avatars).
 
-# Mobile responsive adjustments (PWA support).
+- Mobile responsive adjustments (PWA support).
 
 🤝 Contributing
 
