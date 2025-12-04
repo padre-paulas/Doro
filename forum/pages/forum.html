@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Community Forum - Discuss productivity techniques with other Pomodoro users">
+  <link rel="stylesheet" href="../styles/forum.css">
+  <link rel="icon" href="../../media/tomato-white-1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+  <title>Community Forum - DORO</title>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div id="navbar">
+    <a href="../../user-account/user-account-frontend/user-account.html" class="navbar-button" id="account-button">
+      <img id="account-icon" src="../../media/account-icon-white.png" alt="User Account">
+    </a>
+    <button class="navbar-button" id="streak-button">
+      <img id="flame-icon" src="../../media/flame-icon-white.png" alt="Commitment Tracker">
+    </button>
+    <a href="../../focus-leaders/frontend/focus-leaders.html" class="navbar-button" id="leaderboard-button">
+      <img id="leaderboard-icon" src="../../media/leaderboard-icon-white.png" alt="Focus Leaders">
+    </a>
+    <a href="../../main-page/main-page.html" id="pomodoro-title">
+      DOR
+      <img class="tomato-logo-white" src="../../media/tomato-logo-white.png" alt="O">
+    </a>
+    <button id="menu-button">&#9776;</button>
+    <div id="menu-dropdown" class="menu-dropdown">
+      <a href="../../about-us/about-us.html" class="menu-item">About Us</a>
+      <a href="./forum.html" class="menu-item">Community</a>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="forum-container">
+    <div id="feed-view">
+      <!-- Feed Header -->
+      <div class="forum-header">
+        <h1 class="forum-title">Community Forum</h1>
+        <div class="forum-tabs">
+          <button class="forum-tab active" data-sort="new">New</button>
+          <button class="forum-tab" data-sort="top">Top</button>
+        </div>
+      </div>
+
+      <!-- Main Layout -->
+      <div class="forum-layout">
+        <!-- Feed Content -->
+        <div class="forum-feed">
+          <!-- Create Post Section -->
+          <div class="create-post-section" id="create-post-section" style="display: none;">
+            <h3>Start a Discussion</h3>
+            <form id="create-post-form">
+              <div class="form-group">
+                <label for="post-title">Topic</label>
+                <input
+                  type="text"
+                  id="post-title"
+                  placeholder="What's on your mind?"
+                  maxlength="100"
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="post-body">Share your thoughts</label>
+                <textarea
+                  id="post-body"
+                  placeholder="Share your productivity tips, struggles, or questions..."
+                  maxlength="2000"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn-primary">Post</button>
+                <button type="button" class="btn-secondary" id="cancel-post">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Create Post Button -->
+          <button class="btn-primary" id="new-post-btn" style="margin-bottom: 20px; width: 100%;">
+            New Discussion
+          </button>
+
+          <!-- Posts Feed -->
+          <div class="posts-feed" id="posts-feed">
+            <div class="loading-spinner">Loading posts...</div>
+          </div>
+
+          <!-- Load More -->
+          <button class="btn-secondary" id="load-more-btn" style="margin-top: 20px; width: 100%; display: none;">
+            Load More
+          </button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="forum-sidebar">
+          <div class="sidebar-section">
+            <div class="sidebar-section-title">Forum Stats</div>
+            <div class="sidebar-stat">
+              <span>Total Posts</span>
+              <span class="sidebar-stat-value" id="stat-posts">0</span>
+            </div>
+            <div class="sidebar-stat">
+              <span>Total Comments</span>
+              <span class="sidebar-stat-value" id="stat-comments">0</span>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-section-title">Tips</div>
+            <div style="font-size: 0.85rem; color: var(--yellow-light-2); line-height: 1.5;">
+              💡 Share productivity tips<br>
+              🤔 Ask for advice<br>
+              🎯 Celebrate wins<br>
+              🔥 Keep your streak alive
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post Detail View -->
+    <div id="detail-view" style="display: none;">
+      <button class="back-button" id="back-btn">← Back to Feed</button>
+
+      <div class="post-detail-container">
+        <!-- Post Detail -->
+        <div class="post-detail-header" id="post-detail-header">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3 class="comments-header">Discussion (<span id="comment-count">0</span>)</h3>
+
+          <!-- Comment Form -->
+          <div class="comment-form" id="comment-form" style="display: none;">
+            <div class="comment-form-title">Add your thoughts</div>
+            <form id="add-comment-form">
+              <div class="comment-form-group">
+                <textarea
+                  id="comment-body"
+                  placeholder="Share your perspective..."
+                  maxlength="1000"
+                  required
+                ></textarea>
+              </div>
+              <div class="comment-form-actions">
+                <button type="submit" class="btn-primary">Comment</button>
+                <button type="button" class="btn-secondary" id="cancel-comment">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Comment Button (When Not Authenticated) -->
+          <button class="btn-primary" id="comment-btn" style="width: 100%; margin-bottom: 20px; display: none;">
+            Add Comment
+          </button>
+
+          <!-- Comments List -->
+          <div class="comments-list" id="comments-list">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Streak Modal (from main app) -->
+  <div id="streak-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h2>Your Streak</h2>
+      <div class="streak-info">
+        <div class="streak-stat">
+          <span class="streak-label">Current Streak</span>
+          <span class="streak-value">7</span>
+          <span class="streak-unit">days</span>
+        </div>
+      </div>
+      <h3>This Month's Activity</h3>
+      <div class="mini-activity-grid">
+        <div class="activity-header">
+          <span>S</span>
+          <span>M</span>
+          <span>T</span>
+          <span>W</span>
+          <span>T</span>
+          <span>F</span>
+          <span>S</span>
+        </div>
+        <div class="activity-cells">
+          <!-- Week 1 -->
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <!-- Week 2 -->
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <!-- Week 3 -->
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell"></div>
+          <!-- Week 4 -->
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="forum.js"></script>
+</body>
+</html>
