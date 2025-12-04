@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Pomodoro profile and stats">
+    <link rel="stylesheet" href="user-account-styles.css">
+    <link rel="icon" href="../../media/tomato-white-1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+    <title>Profile - DORO</title>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div id="navbar">
+        <a href="../../user-account/user-account-frontend/user-account.html" class="navbar-button" id="account-button">
+            <img id="account-icon" src="../../media/account-icon-white.png" alt="User Account">
+        </a>
+        <button class="navbar-button" id="streak-button">
+            <img id="flame-icon" src="../../media/flame-icon-white.png" alt="Commitment Tracker">
+        </button>
+        <a href="../../focus-leaders/frontend/focus-leaders.html" class="navbar-button" id="leaderboard-button">
+            <img id="leaderboard-icon" src="../../media/leaderboard-icon-white.png" alt="Focus Leaders">
+        </a>
+        <a id="link-main-page" href="../../main-page/main-page.html">
+            <h1 id="pomodoro-title">
+            DOR
+            <img class="tomato-logo-white" src="../../media/tomato-logo-white.png" alt="O">
+            </h1>
+        </a>
+       
+        <button id="menu-button">&#9776;</button>
+        <div id="menu-dropdown" class="menu-dropdown">
+            <a href="../../about-us/about-us.html" class="menu-item">About Us</a>
+            <a href="../../forum/pages/forum.html" class="menu-item">Community</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="profile-container">
+        <!-- Left column: Profile section -->
+        <section class="profile-section">
+            <div class="profile-avatar">
+                <img src="../../media/account-icon-white.png" alt="Profile Picture" class="avatar-img">
+            </div>
+            <h2 id="user-email" class="username">Username_1</h2>
+            <div class="profile-actions">
+           
+                <button id="sign-out-button" class="main-button">Sign Out</button>
+            </div>
+            <p class="focus-message">You've focused for 1h 15m today — great job! 🎉</p>
+        </section>
+
+        <!-- Right column: Stats and Activity -->
+        <div class="stats-activity-container">
+            <!-- Stats section -->
+            <section class="stats-section">
+                <div class="stat-box">
+                    <span class="stat-icon">🕓</span>
+                    <span id="number-sessions" class="stat-value">0</span>
+                    <span class="stat-label">Total Sessions</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">⏳</span>
+                    <span id="number-seconds" class="stat-value">0</span>
+                    <span class="stat-label">Hours Focused</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">🔥</span>
+                    <span class="stat-value">7</span>
+                    <span class="stat-label">Current Streak</span>
+                </div>
+            </section>
+
+        <!-- Activity section -->
+        <section class="activity-section">
+            <h3 class="section-title">Monthly Activity</h3>
+            <div class="activity-grid-container">
+                <div class="activity-grid">
+                    <div class="activity-header">
+                        <span>S</span>
+                        <span>M</span>
+                        <span>T</span>
+                        <span>W</span>
+                        <span>T</span>
+                        <span>F</span>
+                        <span>S</span>
+                    </div>
+                    <div class="activity-cells">
+                        <!-- Week 1 -->
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell"></div>
+                        <!-- Week 2 -->
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <!-- Week 3 -->
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell"></div>
+                        <!-- Week 4 -->
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <!-- Week 5 (partial) -->
+                        <!-- <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div>
+                        <div class="activity-cell high"></div>
+                        <div class="activity-cell medium"></div> -->
+
+                    
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Streak Modal -->
+    <div id="streak-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h2>Your Streak</h2>
+        <div class="streak-info">
+          <div class="streak-stat">
+            <span class="streak-label">Current Streak</span>
+            <span class="streak-value">7</span>
+            <span class="streak-unit">days</span>
+          </div>
+        </div>
+        <h3>This Month's Activity</h3>
+        <div class="mini-activity-grid">
+          <div class="activity-header">
+            <span>S</span>
+            <span>M</span>
+            <span>T</span>
+            <span>W</span>
+            <span>T</span>
+            <span>F</span>
+            <span>S</span>
+          </div>
+          <div class="activity-cells">
+            <!-- Week 1 -->
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <!-- Week 2 -->
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <!-- Week 3 -->
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell"></div>
+            <!-- Week 4 -->
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+            <div class="activity-cell high"></div>
+            <div class="activity-cell medium"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="user-account-logic.js"></script>
+</body>
+</html>

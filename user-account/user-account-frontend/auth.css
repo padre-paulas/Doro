@@ -1,0 +1,201 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  color: white;
+}
+
+:root {
+  --red: rgba(190, 48, 16, 0.771);
+  --brown: rgb(76, 57, 52);
+  --yellow-light-2: rgb(224, 210, 185);
+  --yellow-light: rgba(224, 210, 185, 0.266);
+  --yellow-title: rgb(255, 242, 220);
+  --tomato-red: rgb(219, 61, 39);
+  --tomato-red-dark: rgb(112, 32, 21);
+  --button-green: rgba(41, 195, 46, 1);
+  --button-gray: rgb(79, 79, 79);
+  --button-gray-dark: rgb(44, 44, 44);
+}
+
+html, body {
+  /* background-color: var(--yellow-light); */
+  /* color: white; */
+  background-image: url('../../media/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  user-select: none;
+}
+
+
+button {
+  color: white;
+  /* background-color: var(--tomato-red); */
+  font-size: 20px;
+  border: none;
+  /*height: 50px;*/
+
+}
+
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background-color: var(--tomato-red);
+  border-radius: 20px;
+  gap: 15px;
+  margin: 10px;
+  height: 50px;
+}
+
+#account-icon, #flame-icon, #leaderboard-icon {
+  margin: 0;
+  padding: 0;
+}
+
+#account-icon {
+  margin-left: 5px;
+  width: 45px;
+  transform: translateY(3px);
+}
+
+#flame-icon {
+  width: 40px;
+  transform: translateY(4px);
+}
+
+#leaderboard-icon {
+  width: 39px;
+  transform: translateY(4px);
+}
+
+#account-button, #streak-button, #leaderboard-button {
+  font-size: 30px;
+  margin: 0;
+  margin-left: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#pomodoro-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-43%) translateY(-10%);
+  margin: 0;
+  font-size: 40px;
+  font-family: "Krona One", sans-serif;
+}
+
+.tomato-logo-white {
+  width: 55px;
+  transform: translateY(8px) translateX(-20px);
+}
+
+#menu-button {
+  margin-left: auto;
+  font-size: 50px;
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-right: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+/* #pomodoro-title {
+  /* position: absolute; */
+  /* left: 50%;
+  transform: translateX(-43%) translateY(-10%); 
+  margin: 0;
+  font-size: 40px;
+  font-family: "Krona One", sans-serif;
+} */
+
+#main-container {
+  /* margin-top: 8vh; */
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-right: 30vw;
+}
+
+#sign-up-with-google-button {
+  color: black;
+  font-size: 20px;
+  border: solid rgba(103, 103, 103, 0.7);
+  background-color: transparent;
+  width: 350px;
+  height: 60px;
+  border-radius: 50px;
+  vertical-align: middle;
+}
+
+#google-logo {
+  height: 35px;
+  width: 35px;
+  /* transform: translateY(6px); */
+  vertical-align: middle;
+  margin: 0 10px 0 0;
+}
+
+#or {
+  margin: 20px;
+  font-weight: bolder;
+  font-size: 30px;
+  color: black;
+}
+
+input {
+  width: 335px;
+  height: 40px;
+  border: solid rgba(103, 103, 103, 0.7);
+  border-radius: 10px;
+  padding-left: 15px;
+  background-color: white;
+  color: black;
+}
+
+#sign-up-button {
+  color: white;;
+  font-size: 20px;
+  border: none;
+  background-color: var(--button-gray);
+  width: 350px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+.main-button:hover {
+  box-shadow: 0 6px var(--button-gray-dark);
+  cursor: pointer;
+  
+}
+
+.main-button:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 var(--button-gray-dark);
+}
+
+#sign-up-button:hover {
+  box-shadow: 0 6px var(--button-gray-dark);
+  cursor: pointer;
+}
+
+#sign-up-button:active {
+  transform: translateY(6px); 
+  box-shadow: 0 0 var(--button-gray-dark);
+}

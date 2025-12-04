@@ -1,0 +1,43 @@
+# CODEOWNERS
+# This file defines code ownership for automatic review requests
+# Learn more: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything in the repo
+* @padre-paulas
+
+# Documentation
+*.md @padre-paulas
+docs/ @padre-paulas
+
+# Configuration files
+*.json @padre-paulas
+*.yml @padre-paulas
+*.yaml @padre-paulas
+*.toml @padre-paulas
+*.ini @padre-paulas
+*.config @padre-paulas
+
+# CI/CD
+.github/ @padre-paulas
+.gitlab-ci.yml @padre-paulas
+.circleci/ @padre-paulas
+
+# Source code
+src/ @padre-paulas
+lib/ @padre-paulas
+
+# Tests
+test/ @padre-paulas
+tests/ @padre-paulas
+__tests__/ @padre-paulas
+*.test.* @padre-paulas
+*.spec.* @padre-paulas
+
+# Build and deployment
+Dockerfile @padre-paulas
+docker-compose.yml @padre-paulas
+package.json @padre-paulas
+package-lock.json @padre-paulas
+requirements.txt @padre-paulas
+Gemfile @padre-paulas
+build/ @padre-paulas

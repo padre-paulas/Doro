@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A convenient tool to help you stay focused and productive on any task!">
+  <link rel="stylesheet" href="main-page-styles.css">
+  <link rel="icon" href="../media/tomato-white-1.png">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+  <title>DORO</title>
+</head>
+<body>
+
+  <div id="navbar">
+    <a href="#" class="navbar-button" id="account-button">
+      <img id="account-icon" src="../media/account-icon-white.png" alt="User Account">
+    </a>
+    <button class="navbar-button" id="streak-button">
+      <img id="flame-icon" src="../media/flame-icon-white.png" alt="Commitment Tracker">
+    </button>
+    <a href="../focus-leaders/frontend/focus-leaders.html" class="navbar-button" id="leaderboard-button">
+      <img id="leaderboard-icon" src="../media/leaderboard-icon-white.png" alt="Focus Leaders">
+    </a>
+    <a href="../main-page/main-page.html" id="pomodoro-title">
+      DOR
+      <img class="tomato-logo-white" src="../media/tomato-logo-white.png" alt="O">
+    </a>
+    <button id="menu-button">&#9776;</button>
+    <div id="menu-dropdown" class="menu-dropdown">
+      <a href="../about-us/about-us.html" class="menu-item">About Us</a>
+      <a href="../forum/pages/forum.html" class="menu-item">Community</a>
+    </div>
+  </div>
+
+  <div id="buttons-timer-container">
+    <div id="break-buttons">
+      <button class="main-button" id="work-button">Work</button>
+      <button class="main-button" id="short-break-button">Short Break</button>
+      <button class="main-button" id="long-break-button">Long Break</button>
+    </div>
+
+    <div id="timer">
+      <h1 id="timer-time">25:00</h1>
+    </div>
+
+    <div id="start-stop-buttons">
+      <button class="main-button" id="start-button">Start</button>
+      <button class="main-button" id="stop-button">Stop</button>
+      <button class="main-button" id="reset-button">
+        <img id="reset-icon" src="../media/reset-icon-red.png" alt="Reset">
+      </button>
+    </div>
+  </div>
+  
+  <!-- Streak Modal -->
+  <div id="streak-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h2>Your Streak</h2>
+      <div class="streak-info">
+        <div class="streak-stat">
+          <span class="streak-label">Current Streak</span>
+          <span class="streak-value">7</span>
+          <span class="streak-unit">days</span>
+        </div>
+      </div>
+      <h3>This Month's Activity</h3>
+      <div class="mini-activity-grid">
+        <div class="activity-header">
+          <span>S</span>
+          <span>M</span>
+          <span>T</span>
+          <span>W</span>
+          <span>T</span>
+          <span>F</span>
+          <span>S</span>
+        </div>
+        <div class="activity-cells">
+          <!-- Week 1 -->
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <!-- Week 2 -->
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <!-- Week 3 -->
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell"></div>
+          <!-- Week 4 -->
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+          <div class="activity-cell high"></div>
+          <div class="activity-cell medium"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="main-page-logic.js"></script>
+  <script type="module">
+    import { auth } from '../config/firebase-config.js';
+    import { onAuthStateChanged } from 'firebase/auth';
+    import { getFirestore, doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+
+    const db = getFirestore();
+
+    const incrementTimersFinished = async () => {
+      const user = auth.currentUser;
+      if (!user) return;
+
+      const userRef = doc(db, "userStats", user.uid);
+      try {
+        await updateDoc(userRef, {
+          secondsFocused: increment(1500),
+          timersFinished: increment(1)
+          
+        });
+        console.log("timersFinished incremented!");
+      } catch (error) {
+        console.error("Failed to increment timersFinished:", error);
+      }
+    };
+
+    let incremented = false; // to make sure it only runs once per timer
+    const checkTimer = () => {
+      if (typeof timeLeft !== "undefined" && !incremented && timeLeft <= 0) {
+        incremented = true;
+        incrementTimersFinished();
+      }
+    };
+
+    // Call this function every second
+    setInterval(checkTimer, 1000);
+
+    // Reset incremented flag when the timer is restarted
+    const startButton = document.getElementById("start-button");
+    if (startButton) {
+      startButton.addEventListener("click", () => {
+        incremented = false;
+      });
+    }
+
+
+    // const changeLink = () => {
+    //   console.log("it's working!!");
+    
+    //   if (auth.currentUser) {
+    //     accountButton.href = '../user-account/user-account-frontend/user-account.html';
+    //   } else {
+    //     accountButton.href = '../user-account/user-account-frontend/auth.html';
+    //   }
+    // } 
+
+    // changeLink();
+  
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("user is signed in: ", user.email);
+        accountButton.href = '../user-account/user-account-frontend/user-account.html';
+        
+      } else {
+        console.log("no user signed in");
+        accountButton.href = '../user-account/user-account-frontend/auth.html';
+        
+      }
+    })
+
+
+
+    const menuButton = document.getElementById("menu-button");
+    const menuDropdown = document.getElementById("menu-dropdown")
+
+    menuButton.addEventListener('click', function() {
+        menuDropdown.classList.toggle('active');
+    });
+
+
+
+    if (streakButton && streakModal && modalClose) {
+        streakButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            streakModal.classList.add('active');
+        });
+
+        modalClose.addEventListener('click', function() {
+            streakModal.classList.remove('active');
+        });
+
+        // Close modal when clicking outside the content
+        streakModal.addEventListener('click', function(event) {
+            if (event.target === streakModal) {
+                streakModal.classList.remove('active');
+            }
+        });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('#navbar')) {
+            menuDropdown.classList.remove('active');
+        }
+    });
+
+  </script>
+</body>
+</html>
