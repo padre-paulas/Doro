@@ -1,65 +1,62 @@
-Stay Focused. Get Streaks. Connect.
+# Stay Focused. Get Streaks. Connect.
 
-Doro is a lightweight, gamified Pomodoro timer application built with Vanilla JavaScript and Firebase. It combines personal productivity tracking with social accountability through leaderboards and a community forum.
+### Doro is a lightweight, gamified Pomodoro timer app built with Vanilla JavaScript. It combines personal productivity tracking with social accountability through leaderboards and a community forum.
 
-✨ Features
+### ✨ Features
 
-⏱️ Productivity
+#### ⏱️ Productivity
 
-Pomodoro Timer: Standard 25/5 intervals.
+- Pomodoro Timer: Standard 25/5 intervals.
 
-🎮 Gamification
+#### 🎮 Gamification
 
-Streak System: Tracks how many consecutive days you've used the app.
+- Streak System: Tracks how many consecutive days you've used the app.
 
-Global Leaderboard: Compete with other users for the top spot based on focus time.
+- Global Leaderboard: Compete with other users for the top spot based on focus time.
 
-👥 Community
+#### 👥 Community
 
-User Accounts: Secure authentication via Email/Password or Google Sign-In.
+- User Accounts: Secure authentication via Email/Password or Google Sign-In.
 
-Discussion Forum:
+##### Discussion Forum:
 
-Create topics.
+- Create topics.
 
-Reply to other users.
+- Reply to other users.
 
-Real-time updates.
+- Real-time updates.
 
-🛠️ Tech Stack
+#### 🛠️ Tech Stack
 
-Frontend: HTML5, CSS3, Vanilla JavaScript (ES6+), TypeScript.
+- Frontend: HTML5, CSS3, Vanilla JavaScript (ES6+), TypeScript.
 
-Backend-as-a-Service: Firebase.
+- Backend-as-a-Service: Firebase.
 
-Firebase Auth: User management and security.
+- Firebase Auth: User management and security.
 
-Cloud Firestore: NoSQL database for storing user stats, posts, and leaderboards.
+- Cloud Firestore: NoSQL database for storing user stats, posts, and leaderboards.
 
-🚀 Getting Started
+#### 🚀 Getting Started
 
 Follow these instructions to get a copy of the project running on your local machine.
 
-Prerequisites
+##### Prerequisites
 
-A code editor (VS Code recommended).
+- A code editor (VS Code recommended).
 
-A Google account (to set up Firebase).
+- A Google account (to set up Firebase).
 
-A local web server (e.g., Live Server extension for VS Code, or Python http.server).
+- A local web server (e.g., Live Server extension for VS Code, or Python http.server).
 
-Installation
+##### Installation
 
-Clone the repository
+1. Clone the repository
 
-git clone [https://github.com/padre-paulas/Doro](https://github.com/padre-paulas/Doro)
-cd doro
+2. Run the App
 
-Run the App
+3. Sign up for an account and start focusing!
 
-Sign up for an account and start focusing!
-
-🔮 Future Improvements
+#### 🔮 Future Improvements
 
 - Dark/Light mode toggle.
 
@@ -67,21 +64,19 @@ Sign up for an account and start focusing!
 
 - Mobile responsive adjustments (PWA support).
 
-🤝 Contributing
+#### 🤝 Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+1. Fork the Project
 
-Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
 
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
 
-Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
 
-Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
 
-Open a Pull Request
-
-📧 Contact
+#### 📧 Contact
 
 padre-paulas - @padre-paulas - pavlo.nord@gmail.com
 
