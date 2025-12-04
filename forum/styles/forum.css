@@ -173,7 +173,7 @@ body {
 
 .forum-title {
   font-size: 2rem;
-  color: var(--yellow-title);
+  color: var(--tomato-red);
 }
 
 .forum-tabs {
@@ -184,7 +184,7 @@ body {
 .forum-tab {
   background: transparent;
   border: 2px solid var(--border-color);
-  color: var(--yellow-light-2);
+  color: var(--tomato-red);
   padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
@@ -225,7 +225,7 @@ body {
 }
 
 .form-group label {
-  color: var(--yellow-light-2);
+  color: var(--tomato-red);
   margin-bottom: 8px;
   font-size: 0.9rem;
 }
@@ -280,7 +280,7 @@ body {
 .btn-secondary {
   background: transparent;
   border: 1px solid var(--border-color);
-  color: var(--yellow-light-2);
+  color: var(--tomato-red);
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
@@ -357,7 +357,7 @@ body {
   color: var(--yellow-light-2);
   font-size: 0.95rem;
   line-height: 1.4;
-  margin-bottom: 15px;
+  margin-bottom: 15px;]
   word-break: break-word;
 }
 
@@ -587,7 +587,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 40px;
-  color: var(--text-muted);
+  color: var(--yellow-light-2);
 }
 
 .empty-state {
@@ -643,7 +643,7 @@ body {
 .sidebar-stat {
   display: flex;
   justify-content: space-between;
-  color: var(--yellow-light-2);
+  color: var(--tomato-red);
   font-size: 0.9rem;
   margin-bottom: 8px;
 }

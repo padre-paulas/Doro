@@ -1,5 +1,5 @@
 import { auth } from "../../config/firebase-config.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+import { onAuthStateChanged } from "firebase/auth";
 import {
   createPost,
   fetchPosts,
@@ -489,9 +489,7 @@ function escapeHtml(text) {
  */
 async function getUserData(uid) {
   try {
-    const { getFirestore, doc, getDoc } = await import(
-      "https://www.gstatic.com/firebasejs/10.12.3/firestore.js"
-    );
+    const { getFirestore, doc, getDoc } = await import("firebase/firestore");
 
     const db = getFirestore();
     const userDoc = await getDoc(doc(db, "userStats", uid));

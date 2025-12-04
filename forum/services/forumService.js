@@ -15,7 +15,7 @@ import {
   increment,
   writeBatch,
   where
-} from "https://www.gstatic.com/firebasejs/10.12.3/firestore.js";
+} from "firebase/firestore";
 
 const db = getFirestore(app);
 const POSTS_PER_PAGE = 10;
