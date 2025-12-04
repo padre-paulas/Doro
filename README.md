@@ -1,8 +1,6 @@
-🍅 Doro
-
 Stay Focused. Get Streaks. Connect.
 
-Doro is a lightweight, gamified Pomodoro timer application built entirely with Vanilla JavaScript and Firebase. It combines personal productivity tracking with social accountability through leaderboards and a community forum.
+Doro is a lightweight, gamified Pomodoro timer application built with Vanilla JavaScript and Firebase. It combines personal productivity tracking with social accountability through leaderboards and a community forum.
 
 ✨ Features
 
