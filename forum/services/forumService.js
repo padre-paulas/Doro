@@ -1,4 +1,4 @@
-import { app } from "../../config/firebase-config.js";
+import { app } from "../config/firebase-config.js";
 import { 
   getFirestore, 
   collection, 
@@ -89,10 +89,12 @@ export async function fetchPosts(sortBy = "new", lastDoc = null) {
     }
 
     const snapshot = await getDocs(q);
+    
     const posts = [];
     let newLastDoc = null;
+    let index = 0;
 
-    snapshot.forEach((doc, index) => {
+    snapshot.forEach((doc) => {
       if (index < POSTS_PER_PAGE) {
         posts.push({
           id: doc.id,
@@ -101,6 +103,7 @@ export async function fetchPosts(sortBy = "new", lastDoc = null) {
       } else {
         newLastDoc = doc;
       }
+      index++;
     });
 
     return { posts, lastDoc: newLastDoc, hasMore: snapshot.size > POSTS_PER_PAGE };

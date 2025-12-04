@@ -1,4 +1,4 @@
-import { auth } from "../../config/firebase-config.js";
+import { auth } from "../config/firebase-config.js";
 import { onAuthStateChanged } from "firebase/auth";
 import {
   createPost,
@@ -213,6 +213,11 @@ createPostForm.addEventListener("submit", async (e) => {
     createPostForm.reset();
     createPostSection.style.display = "none";
     alert("Post created successfully!");
+    
+    // Wait a moment for the server timestamp to sync before reloading feed
+    // This ensures the newly created post will appear in the query results
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
     loadFeed();
   } catch (error) {
     console.error("Error creating post:", error);
@@ -414,7 +419,9 @@ addCommentForm.addEventListener("submit", async (e) => {
 // VIEW NAVIGATION
 // ============================================================================
 
-backBtn.addEventListener("click", showFeedView);
+if (backBtn) {
+  backBtn.addEventListener("click", showFeedView);
+}
 
 function showFeedView() {
   feedView.style.display = "block";
@@ -426,28 +433,34 @@ function showFeedView() {
 // SORTING
 // ============================================================================
 
-sortButtons.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    sortButtons.forEach((b) => b.classList.remove("active"));
-    e.target.classList.add("active");
-    currentSort = e.target.dataset.sort;
-    loadFeed();
+if (sortButtons.length > 0) {
+  sortButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      sortButtons.forEach((b) => b.classList.remove("active"));
+      e.target.classList.add("active");
+      currentSort = e.target.dataset.sort;
+      loadFeed();
+    });
   });
-});
+}
 
 // ============================================================================
 // PAGINATION
 // ============================================================================
 
-loadMoreBtn.addEventListener("click", loadMorePosts);
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener("click", loadMorePosts);
+}
 
 // ============================================================================
 // MENU & STREAK MODAL
 // ============================================================================
 
-menuButton.addEventListener("click", () => {
-  menuDropdown.classList.toggle("active");
-});
+if (menuButton) {
+  menuButton.addEventListener("click", () => {
+    menuDropdown.classList.toggle("active");
+  });
+}
 
 document.addEventListener("click", (event) => {
   if (!event.target.closest("#navbar")) {
@@ -455,20 +468,26 @@ document.addEventListener("click", (event) => {
   }
 });
 
-streakButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  streakModal.style.display = "flex";
-});
+if (streakButton) {
+  streakButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    streakModal.style.display = "flex";
+  });
+}
 
-modalClose.addEventListener("click", () => {
-  streakModal.style.display = "none";
-});
-
-streakModal.addEventListener("click", (event) => {
-  if (event.target === streakModal) {
+if (modalClose) {
+  modalClose.addEventListener("click", () => {
     streakModal.style.display = "none";
-  }
-});
+  });
+}
+
+if (streakModal) {
+  streakModal.addEventListener("click", (event) => {
+    if (event.target === streakModal) {
+      streakModal.style.display = "none";
+    }
+  });
+}
 
 // ============================================================================
 // UTILITIES
