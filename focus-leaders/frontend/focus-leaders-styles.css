@@ -496,11 +496,6 @@ footer p {
   transition: 0.2s;
 }
 
-.leaderboard-item:hover {
-  /* background: #e8e8e8; */
-
-}
-
 .leaderboard-rank {
   font-weight: bold;
   margin-right: 10px;
