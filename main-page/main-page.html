@@ -140,38 +140,28 @@
       }
     };
 
-    let incremented = false; // to make sure it only runs once per timer
+    let incremented = false; 
     const checkTimer = () => {
+      if (incremented) return;
       if (typeof timeLeft !== "undefined" && !incremented && timeLeft <= 0) {
         incremented = true;
         incrementTimersFinished();
       }
     };
 
-    // Call this function every second
     setInterval(checkTimer, 1000);
 
     // Reset incremented flag when the timer is restarted
     const startButton = document.getElementById("start-button");
     if (startButton) {
       startButton.addEventListener("click", () => {
-        incremented = false;
+        if (timeLeft => 1400) {
+          incremented = true;
+        } else {
+          incremented = false;
+        }
       });
     }
-
-
-    // const changeLink = () => {
-    //   console.log("it's working!!");
-    
-    //   if (auth.currentUser) {
-    //     accountButton.href = '../user-account/user-account-frontend/user-account.html';
-    //   } else {
-    //     accountButton.href = '../user-account/user-account-frontend/auth.html';
-    //   }
-    // } 
-
-    // changeLink();
-  
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
