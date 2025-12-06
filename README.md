@@ -78,8 +78,8 @@ Follow these instructions to get a copy of the project running on your local mac
 
 #### 📧 Contact
 
-padre-paulas - @padre-paulas - pavlo.nord@gmail.com
+Pavlo Prokhorov - @padre-paulas - pavlo.nord@gmail.com
 
-Nerekin - @nerekin - cheemscheemsovich@gmail.com
+Nazar Senchyshyn - @nerekin - cheemscheemsovich@gmail.com
 
 Project Link: https://github.com/padre-paulas/Doro
