@@ -12,8 +12,6 @@
   <title>Community Forum - DORO</title>
 </head>
 <body>
-
-  <!-- Navigation Bar -->
   <div id="navbar">
     <a href="../../user-account/user-account-frontend/user-account.html" class="navbar-button" id="account-button">
       <img id="account-icon" src="../../media/account-icon-white.png" alt="User Account">
@@ -35,10 +33,8 @@
     </div>
   </div>
 
-  <!-- Main Container -->
   <div class="forum-container">
     <div id="feed-view">
-      <!-- Feed Header -->
       <div class="forum-header">
         <h1 class="forum-title">Community Forum</h1>
         <div class="forum-tabs">
@@ -47,11 +43,8 @@
         </div>
       </div>
 
-      <!-- Main Layout -->
       <div class="forum-layout">
-        <!-- Feed Content -->
         <div class="forum-feed">
-          <!-- Create Post Section -->
           <div class="create-post-section" id="create-post-section" style="display: none;">
             <h3>Start a Discussion</h3>
             <form id="create-post-form">
@@ -81,23 +74,19 @@
             </form>
           </div>
 
-          <!-- Create Post Button -->
           <button class="btn-primary" id="new-post-btn" style="margin-bottom: 20px; width: 100%;">
             New Discussion
           </button>
 
-          <!-- Posts Feed -->
           <div class="posts-feed" id="posts-feed">
             <div class="loading-spinner">Loading posts...</div>
           </div>
 
-          <!-- Load More -->
           <button class="btn-secondary" id="load-more-btn" style="margin-top: 20px; width: 100%; display: none;">
             Load More
           </button>
         </div>
 
-        <!-- Sidebar -->
         <div class="forum-sidebar">
           <div class="sidebar-section">
             <div class="sidebar-section-title">Forum Stats</div>
@@ -124,21 +113,16 @@
       </div>
     </div>
 
-    <!-- Post Detail View -->
     <div id="detail-view" style="display: none;">
       <button class="back-button" id="back-btn">← Back to Feed</button>
 
       <div class="post-detail-container">
-        <!-- Post Detail -->
         <div class="post-detail-header" id="post-detail-header">
-          <!-- Populated by JavaScript -->
         </div>
 
-        <!-- Comments Section -->
         <div class="comments-section">
           <h3 class="comments-header">Discussion (<span id="comment-count">0</span>)</h3>
 
-          <!-- Comment Form -->
           <div class="comment-form" id="comment-form" style="display: none;">
             <div class="comment-form-title">Add your thoughts</div>
             <form id="add-comment-form">
@@ -157,21 +141,17 @@
             </form>
           </div>
 
-          <!-- Comment Button (When Not Authenticated) -->
           <button class="btn-primary" id="comment-btn" style="width: 100%; margin-bottom: 20px; display: none;">
             Add Comment
           </button>
 
-          <!-- Comments List -->
           <div class="comments-list" id="comments-list">
-            <!-- Populated by JavaScript -->
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Streak Modal (from main app) -->
   <div id="streak-modal" class="modal" style="display: none;">
     <div class="modal-content">
       <button class="modal-close">&times;</button>
