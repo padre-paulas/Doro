@@ -20,6 +20,7 @@ var isRunning = false;
 var interval;
 var updateTime = function () {
     minutes = Math.floor(timeLeft / 60);
+    "";
     seconds = (timeLeft % 60);
     timerTime.innerHTML =
         "".concat(minutes.toString().length === 1 ? "0" + minutes.toString() : minutes.toString(), ":").concat(seconds.toString().length === 1 ? "0" + seconds.toString() : seconds.toString());
@@ -84,4 +85,3 @@ resetButton.addEventListener("click", resetTimer);
 workButton.addEventListener("click", function () { return timeSwitch(work_25_minutes); });
 shortBreakButton.addEventListener("click", function () { return timeSwitch(break_5_minutes); });
 longBreakButton.addEventListener("click", function () { return timeSwitch(break_15_minutes); });
-// accountButton.addEventListener("click", () => changeLink)

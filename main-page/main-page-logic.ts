@@ -22,7 +22,7 @@ let isRunning: boolean = false;
 let interval: NodeJS.Timeout;
 
 const updateTime = () => {
-  minutes = Math.floor(timeLeft / 60);
+  minutes = Math.floor(timeLeft / 60);``
   seconds = (timeLeft % 60);
   timerTime.innerHTML = 
   `${minutes.toString().length === 1 ? "0" + minutes.toString() : minutes.toString()}:${seconds.toString().length === 1 ? "0" + seconds.toString() : seconds.toString()}`;
@@ -92,4 +92,3 @@ resetButton.addEventListener("click", resetTimer);
 workButton.addEventListener("click", () => timeSwitch(work_25_minutes));
 shortBreakButton.addEventListener("click", () => timeSwitch(break_5_minutes));
 longBreakButton.addEventListener("click", () => timeSwitch(break_15_minutes));
-// accountButton.addEventListener("click", () => changeLink)

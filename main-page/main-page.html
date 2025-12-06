@@ -151,7 +151,6 @@
 
     setInterval(checkTimer, 1000);
 
-    // Reset incremented flag when the timer is restarted
     const startButton = document.getElementById("start-button");
     if (startButton) {
       startButton.addEventListener("click", () => {
@@ -175,8 +174,6 @@
       }
     })
 
-
-
     const menuButton = document.getElementById("menu-button");
     const menuDropdown = document.getElementById("menu-dropdown")
 
@@ -196,7 +193,6 @@
             streakModal.classList.remove('active');
         });
 
-        // Close modal when clicking outside the content
         streakModal.addEventListener('click', function(event) {
             if (event.target === streakModal) {
                 streakModal.classList.remove('active');
@@ -204,7 +200,6 @@
         });
     }
 
-    // Close menu when clicking outside
     document.addEventListener('click', function(event) {
         if (!event.target.closest('#navbar')) {
             menuDropdown.classList.remove('active');

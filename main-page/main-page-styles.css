@@ -19,8 +19,6 @@ button {
   background-color: var(--tomato-red);
   font-size: 20px;
   border: none;
-  /*height: 50px;*/
-
 }
 
 a {
@@ -77,7 +75,6 @@ html, body {
   cursor: pointer;
 }
 
-/* Active page indicator for main page */
 #account-button, #streak-button, #leaderboard-button {
   opacity: 1;
 }
@@ -195,7 +192,6 @@ html, body {
 }
 
 #reset-button:hover {
-  /*box-shadow: 0 0 10px 5px var(--tomato-red-dark);*/
   transform: scale(1.2);
   box-shadow: none;
 }
