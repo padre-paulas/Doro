@@ -130,7 +130,6 @@ export async function getPost(postId) {
       ...postDoc.data()
     };
 
-    // Fetch comments
     const commentsQuery = query(
       collection(db, "posts", postId, "comments"),
       orderBy("createdAt", "asc")
@@ -166,7 +165,6 @@ export async function addComment(postId, authorId, authorName, authorStreak, bod
   try {
     const batch = writeBatch(db);
 
-    // Add comment
     const commentRef = await addDoc(
       collection(db, "posts", postId, "comments"),
       {
@@ -178,7 +176,6 @@ export async function addComment(postId, authorId, authorName, authorStreak, bod
       }
     );
 
-    // Increment comment count on post
     const postRef = doc(db, "posts", postId);
     batch.update(postRef, {
       commentCount: increment(1)
