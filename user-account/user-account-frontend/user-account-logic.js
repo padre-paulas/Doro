@@ -12,41 +12,6 @@ const logOutButton = document.getElementById("sign-out-button");
 const emailElem = document.getElementById("user-email");
 const sessionsNumber = document.getElementById("number-sessions");
 const hoursFocused = document.getElementById("number-seconds");
-  
-// if (signUpButton) {
-//   const signUp = async () => {
-//     console.log(`You are logged in with this email: ${auth?.currentUser?.email}`)
-//     try {
-//       await createUserWithEmailAndPassword(auth, email.value, password.value);
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
-
-//   const signUpGoogle = async () => {
-//     try {
-//       await signInWithPopup(auth, googleProvider);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-
-//   const logOut = async () => {
-//     try {
-//       await signOut(auth);
-//       console.log(auth?.currentUser?.email);
-//       window.location.href = 'auth.html';
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
-
-//   signUpButton.onclick = signUp;
-//   signUpGoogleButton.onclick = signUpGoogle;
-//   logOutButton.onclick = logOut;
-// }
-
-
 
 const db = getFirestore();
 
@@ -106,7 +71,6 @@ if (menuButton && menuDropdown) {
     menuDropdown.classList.toggle('active');
   });
 
-  // Close menu when clicking outside
   document.addEventListener('click', function(event) {
     if (!event.target.closest('#navbar')) {
       menuDropdown.classList.remove('active');
@@ -114,7 +78,6 @@ if (menuButton && menuDropdown) {
   });
 }
 
-// Streak modal functionality
 var streakModal = document.getElementById('streak-modal');
 var streakButton = document.getElementById('streak-button');
 var modalClose = document.querySelector('.modal-close');
@@ -128,7 +91,6 @@ modalClose.addEventListener('click', function() {
   streakModal.classList.remove('active');
 });
 
-// Close modal when clicking outside the content
 streakModal.addEventListener('click', function(event) {
   if (event.target === streakModal) {
     streakModal.classList.remove('active');

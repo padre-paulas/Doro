@@ -1,4 +1,3 @@
-// Menu toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
     const menuButton = document.getElementById('menu-button');
     const menuDropdown = document.getElementById('menu-dropdown');
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
             menuDropdown.classList.toggle('active');
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!event.target.closest('#navbar')) {
                 menuDropdown.classList.remove('active');
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Streak modal functionality
     const streakButton = document.getElementById('streak-button');
     const streakModal = document.getElementById('streak-modal');
     const modalClose = document.querySelector('.modal-close');
@@ -31,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
             streakModal.classList.remove('active');
         });
 
-        // Close modal when clicking outside the content
         streakModal.addEventListener('click', function(event) {
             if (event.target === streakModal) {
                 streakModal.classList.remove('active');

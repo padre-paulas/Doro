@@ -11,10 +11,6 @@ import {
 } from "../services/forumService.js";
 import { createPostCard, createCommentItem } from "../components/PostCard.js";
 
-// ============================================================================
-// STATE & VARIABLES
-// ============================================================================
-
 let currentUser = null;
 let currentSort = "new";
 let currentPostId = null;
@@ -22,7 +18,6 @@ let lastDoc = null;
 let hasMore = true;
 let isLoadingPosts = false;
 
-// DOM Elements
 const feedView = document.getElementById("feed-view");
 const detailView = document.getElementById("detail-view");
 const postsFeed = document.getElementById("posts-feed");
@@ -46,10 +41,6 @@ const streakModal = document.getElementById("streak-modal");
 const modalClose = document.querySelector(".modal-close");
 const sortButtons = document.querySelectorAll(".forum-tab");
 
-// ============================================================================
-// AUTHENTICATION
-// ============================================================================
-
 onAuthStateChanged(auth, async (user) => {
   currentUser = user;
 
@@ -66,13 +57,6 @@ onAuthStateChanged(auth, async (user) => {
   loadFeed();
 });
 
-// ============================================================================
-// FEED MANAGEMENT
-// ============================================================================
-
-/**
- * Load posts from Firestore
- */
 async function loadFeed() {
   try {
     isLoadingPosts = true;
@@ -98,9 +82,6 @@ async function loadFeed() {
   }
 }
 
-/**
- * Display posts in the feed
- */
 function displayPosts(posts) {
   if (posts.length === 0) {
     postsFeed.innerHTML = `
@@ -122,9 +103,6 @@ function displayPosts(posts) {
   });
 }
 
-/**
- * Load more posts (pagination)
- */
 async function loadMorePosts() {
   if (!hasMore || isLoadingPosts) return;
 
@@ -164,10 +142,6 @@ async function loadMorePosts() {
   }
 }
 
-// ============================================================================
-// CREATE POST
-// ============================================================================
-
 newPostBtn.addEventListener("click", () => {
   if (!currentUser) {
     alert("You must be logged in to create a post");
@@ -199,7 +173,6 @@ createPostForm.addEventListener("submit", async (e) => {
       return;
     }
 
-    // Fetch user data from Firestore
     const userData = await getUserData(currentUser.uid);
 
     const postId = await createPost(
@@ -214,8 +187,6 @@ createPostForm.addEventListener("submit", async (e) => {
     createPostSection.style.display = "none";
     alert("Post created successfully!");
     
-    // Wait a moment for the server timestamp to sync before reloading feed
-    // This ensures the newly created post will appear in the query results
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     loadFeed();
@@ -225,13 +196,6 @@ createPostForm.addEventListener("submit", async (e) => {
   }
 });
 
-// ============================================================================
-// POST DETAIL VIEW
-// ============================================================================
-
-/**
- * Show post detail view
- */
 async function showPostDetail(postId) {
   try {
     currentPostId = postId;
@@ -248,9 +212,6 @@ async function showPostDetail(postId) {
   }
 }
 
-/**
- * Render post detail header
- */
 function renderPostDetail(post) {
   const createdDate = post.createdAt?.toDate?.() || new Date(post.createdAt);
   const formattedDate = createdDate.toLocaleDateString();
@@ -283,7 +244,6 @@ function renderPostDetail(post) {
     </div>
   `;
 
-  // Attach event listeners
   const upvoteBtn = document.getElementById("upvote-btn");
   const deleteBtn = document.getElementById("delete-btn");
 
@@ -293,9 +253,6 @@ function renderPostDetail(post) {
   }
 }
 
-/**
- * Handle upvote
- */
 async function handleUpvote(postId) {
   if (!currentUser) {
     alert("You must be logged in to upvote");
@@ -322,9 +279,6 @@ async function handleUpvote(postId) {
   }
 }
 
-/**
- * Handle delete
- */
 async function handleDelete(postId) {
   if (!confirm("Are you sure you want to delete this post?")) {
     return;
@@ -340,13 +294,6 @@ async function handleDelete(postId) {
   }
 }
 
-// ============================================================================
-// COMMENTS
-// ============================================================================
-
-/**
- * Render comments
- */
 function renderComments(comments) {
   const commentCount = document.getElementById("comment-count");
   commentCount.textContent = comments.length;
@@ -415,10 +362,6 @@ addCommentForm.addEventListener("submit", async (e) => {
   }
 });
 
-// ============================================================================
-// VIEW NAVIGATION
-// ============================================================================
-
 if (backBtn) {
   backBtn.addEventListener("click", showFeedView);
 }
@@ -428,10 +371,6 @@ function showFeedView() {
   detailView.style.display = "none";
   currentPostId = null;
 }
-
-// ============================================================================
-// SORTING
-// ============================================================================
 
 if (sortButtons.length > 0) {
   sortButtons.forEach((btn) => {
@@ -444,17 +383,9 @@ if (sortButtons.length > 0) {
   });
 }
 
-// ============================================================================
-// PAGINATION
-// ============================================================================
-
 if (loadMoreBtn) {
   loadMoreBtn.addEventListener("click", loadMorePosts);
 }
-
-// ============================================================================
-// MENU & STREAK MODAL
-// ============================================================================
 
 if (menuButton) {
   menuButton.addEventListener("click", () => {
@@ -489,13 +420,6 @@ if (streakModal) {
   });
 }
 
-// ============================================================================
-// UTILITIES
-// ============================================================================
-
-/**
- * Escape HTML to prevent XSS
- */
 function escapeHtml(text) {
   if (!text) return "";
   const div = document.createElement("div");
@@ -503,9 +427,6 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
-/**
- * Get user data from Firestore
- */
 async function getUserData(uid) {
   try {
     const { getFirestore, doc, getDoc } = await import("firebase/firestore");
@@ -530,9 +451,4 @@ async function getUserData(uid) {
   }
 }
 
-// ============================================================================
-// INITIALIZE
-// ============================================================================
-
-// Load feed on page load (auth listener will trigger loadFeed)
 console.log("Forum app initialized");

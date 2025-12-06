@@ -5,14 +5,12 @@ import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.3/f
 
 const db = getFirestore(app);
 
-// DOM elements
 const accountButton = document.getElementById("account-button");
 const signUpButton = document.getElementById("sign-up-button");
 const email = document.getElementById("email-input");
 const password = document.getElementById("password-input");
 const signUpGoogleButton = document.getElementById("sign-up-with-google-button");
 
-// Update account button link dynamically
 const changeLink = (user) => {
   if (user) {
     accountButton.href = 'user-account.html';
@@ -21,7 +19,6 @@ const changeLink = (user) => {
   }
 };
 
-// Check if Firestore doc exists or create it
 const ensureUserDoc = async (user) => {
   const userRef = doc(db, "userStats", user.uid);
   const userSnap = await getDoc(userRef);
@@ -34,10 +31,8 @@ const ensureUserDoc = async (user) => {
   }
 };
 
-// Email/password signup or login
 const signUp = async () => {
   try {
-    // Try login first
     const userCredential = await signInWithEmailAndPassword(auth, email.value, password.value);
     const user = userCredential.user;
     await ensureUserDoc(user);
@@ -45,8 +40,6 @@ const signUp = async () => {
     return openAccountPage();
   } catch (error) {
     console.log("This is EROROROORORO:", error)
-    // if (error.code === "auth/user-not-found") {
-      // If user doesn't exist, create account
       try {
         console.log("Did we get here?")
         const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
@@ -57,13 +50,9 @@ const signUp = async () => {
       } catch (createError) {
         console.error("Error creating user:", createError);
       }
-    // } else {
-    //   console.error("Login error:", error);
-    // }
   }
 };
 
-// Google signup/login
 const signUpGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
@@ -76,16 +65,13 @@ const signUpGoogle = async () => {
   }
 };
 
-// Redirect helper
 const openAccountPage = () => {
   window.location.href = 'user-account.html';
 };
 
-// Update account link on page load
 onAuthStateChanged(auth, (user) => {
   changeLink(user);
 });
 
-// Event listeners
 signUpButton.onclick = signUp;
 signUpGoogleButton.onclick = signUpGoogle;

@@ -1,4 +1,3 @@
-/* Forum Styles - Low-Dopamine Design */
 :root {
   --brown: rgb(76, 57, 52);
   --yellow-light-2: rgb(219, 61, 39);
@@ -26,7 +25,6 @@ body {
   user-select: none;
 }
 
-/* Container & Layout */
 .forum-container {
   width: 100%;
   max-width: 900px;
@@ -54,7 +52,6 @@ body {
   top: 20px;
 }
 
-/* Navbar Integration */
 #navbar {
   display: flex;
   align-items: center;
@@ -63,7 +60,7 @@ body {
   border-radius: 20px;
   gap: 15px;
   margin: 10px;
-  height: 50px;
+  height: 60px;
 }
 
 #account-icon, #flame-icon, #leaderboard-icon {
@@ -161,7 +158,6 @@ body {
   padding-left: 2rem;
 }
 
-/* Forum Header */
 .forum-header {
   display: flex;
   justify-content: space-between;
@@ -203,7 +199,6 @@ body {
   color: var(--yellow-title);
 }
 
-/* Create Post Section */
 .create-post-section {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid var(--border-color);
@@ -293,7 +288,6 @@ body {
   color: var(--yellow-title);
 }
 
-/* Posts Feed */
 .posts-feed {
   display: flex;
   flex-direction: column;
@@ -386,7 +380,6 @@ body {
   font-size: 1rem;
 }
 
-/* Post Detail View */
 .post-detail-container {
   max-width: 700px;
   margin: 0 auto;
@@ -469,7 +462,6 @@ body {
   color: var(--tomato-red);
 }
 
-/* Comments Section */
 .comments-section {
   margin-bottom: 30px;
 }
@@ -529,7 +521,6 @@ body {
   gap: 10px;
 }
 
-/* Comments List */
 .comments-list {
   display: flex;
   flex-direction: column;
@@ -581,7 +572,6 @@ body {
   word-break: break-word;
 }
 
-/* Loading & Empty States */
 .loading-spinner {
   display: flex;
   justify-content: center;
@@ -606,7 +596,6 @@ body {
   color: var(--yellow-light-2);
 }
 
-/* Back Button */
 .back-button {
   display: flex;
   align-items: center;
@@ -627,7 +616,6 @@ body {
   color: var(--yellow-title);
 }
 
-/* Sidebar */
 .sidebar-section {
   margin-bottom: 20px;
 }
@@ -653,7 +641,6 @@ body {
   font-weight: bold;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .forum-layout {
     grid-template-columns: 1fr;

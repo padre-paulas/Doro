@@ -27,7 +27,6 @@ async function loadLeaderboard() {
       const email = data.email ?? "anonymous";
       const score = data.timersFinished ?? 0;
 
-      // Medal for top 3
       let medal = "";
       if (rank === 1) medal = "🥇 ";
       else if (rank === 2) medal = "🥈 ";
@@ -59,10 +58,6 @@ async function loadLeaderboard() {
 
 loadLeaderboard();
 
-
-
-
-// Streak modal functionality
 const streakButton = document.getElementById('streak-button');
 const streakModal = document.getElementById('streak-modal');
 const modalClose = document.querySelector('.modal-close');
@@ -85,7 +80,6 @@ if (streakButton && streakModal && modalClose) {
         streakModal.classList.remove('active');
     });
 
-    // Close modal when clicking outside the content
     streakModal.addEventListener('click', function(event) {
         if (event.target === streakModal) {
             streakModal.classList.remove('active');
@@ -93,7 +87,6 @@ if (streakButton && streakModal && modalClose) {
     });
 }
 
-// Close menu when clicking outside
 document.addEventListener('click', function(event) {
     if (!event.target.closest('#navbar')) {
         menuDropdown.classList.remove('active');

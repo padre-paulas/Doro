@@ -18,8 +18,6 @@
 }
 
 html, body {
-  /* background-color: var(--yellow-light); */
-  /* color: white; */
   background-image: url('../../media/background.jpg');
   background-size: cover;
   background-position: center;
@@ -34,11 +32,8 @@ html, body {
 
 button {
   color: white;
-  /* background-color: var(--tomato-red); */
   font-size: 20px;
   border: none;
-  /*height: 50px;*/
-
 }
 
 
@@ -111,18 +106,7 @@ a {
   cursor: pointer;
 }
 
-
-/* #pomodoro-title {
-  /* position: absolute; */
-  /* left: 50%;
-  transform: translateX(-43%) translateY(-10%); 
-  margin: 0;
-  font-size: 40px;
-  font-family: "Krona One", sans-serif;
-} */
-
 #main-container {
-  /* margin-top: 8vh; */
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -147,7 +131,6 @@ a {
 #google-logo {
   height: 35px;
   width: 35px;
-  /* transform: translateY(6px); */
   vertical-align: middle;
   margin: 0 10px 0 0;
 }
