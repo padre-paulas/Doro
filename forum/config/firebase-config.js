@@ -1,7 +1,3 @@
-// Forum-specific Firebase configuration using npm imports
-// This file is only used by the forum (Vite-bundled) because it requires npm modules
-// Other pages use the shared config/firebase-config.js with CDN imports
-
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 

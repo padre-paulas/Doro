@@ -1,17 +1,11 @@
-/**
- * PostCard Component
- * Displays a forum post with author streak, vote count, and comment preview
- */
 export function createPostCard(post, onClick) {
   const card = document.createElement('div');
   card.className = 'post-card';
   card.dataset.postId = post.id;
 
-  // Format timestamp
   const createdDate = post.createdAt?.toDate?.() || new Date(post.createdAt);
   const timeAgo = formatTimeAgo(createdDate);
 
-  // Truncate body if too long
   const bodyPreview = post.body.length > 150 
     ? post.body.substring(0, 150) + '...' 
     : post.body;
@@ -50,10 +44,6 @@ export function createPostCard(post, onClick) {
   return card;
 }
 
-/**
- * CommentItem Component
- * Displays a single comment in the thread
- */
 export function createCommentItem(comment) {
   const item = document.createElement('div');
   item.className = 'comment-item';
@@ -75,9 +65,6 @@ export function createCommentItem(comment) {
   return item;
 }
 
-/**
- * Format date to "time ago" format
- */
 function formatTimeAgo(date) {
   const now = new Date();
   const seconds = Math.floor((now - date) / 1000);
@@ -95,9 +82,6 @@ function formatTimeAgo(date) {
   return date.toLocaleDateString();
 }
 
-/**
- * Escape HTML to prevent XSS
- */
 function escapeHtml(text) {
   if (!text) return '';
   const div = document.createElement('div');
