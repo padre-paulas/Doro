@@ -26,7 +26,10 @@ a {
 }
 
 html, body {
-  background-color: var(--yellow-light);
+  /* background-color: var(--yellow-light); */
+  background-image: url("../media/notebook-pencil.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   color: white;
   height: 100%;
   overflow: hidden;
