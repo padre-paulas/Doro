@@ -19,7 +19,11 @@
 }
 
 body {
-  background-color: var(--yellow-light);
+  /* background-color: var(--yellow-light); */
+  background-image: url("../../media/plant-against-wall.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: white;
   min-height: 100vh;
   user-select: none;
