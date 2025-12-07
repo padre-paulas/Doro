@@ -10,6 +10,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
   <title>DORO</title>
+  <style>
+    #streak-modal .modal-content {
+      max-width: 400px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      opacity: 0;
+    }
+
+    #streak-modal {
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    #streak-modal.active {
+      opacity: 1;
+    }
+
+    #streak-modal.active .modal-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -175,7 +196,11 @@
     })
 
     const menuButton = document.getElementById("menu-button");
-    const menuDropdown = document.getElementById("menu-dropdown")
+    const menuDropdown = document.getElementById("menu-dropdown");
+    var streakButton = document.getElementById('streak-button');
+    var modalClose = document.querySelector('.modal-close');
+    const streakModal = document.getElementById("streak-modal");
+
 
     menuButton.addEventListener('click', function() {
         menuDropdown.classList.toggle('active');
